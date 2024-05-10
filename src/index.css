@@ -1,5 +1,6 @@
 /* global styles */
 
 body {
-  background-color: rgb(213,222,221);
+  background-color: #fff6e6;
+  transition: background-color 0.3s, color 0.3s;
 }

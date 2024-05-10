@@ -36,6 +36,7 @@ function MainPage() {
           <TimelineEditor />
         </div>
       </div>
+      <div class="top-rectangle"></div>
     </div>
   );
 }

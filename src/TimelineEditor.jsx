@@ -79,11 +79,11 @@ const TimelineEditor = () => {
 
 
     return (
-        <div ref={timelineRef}>
+        <div class="bottom" ref={timelineRef}>
             <Timeline
             editorData={timelineData}
             effects={mockEffect}
-            style={{width: '100%', height: 300}}
+            style={{width: '100%', height: '100%'}}
             onChange={() => {console.log('change')}}
             autoScroll={true}
             scale={scale}
