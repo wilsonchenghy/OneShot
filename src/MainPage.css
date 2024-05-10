@@ -1,29 +1,38 @@
 .ICON{
+    display: inline-block;
+    margin: auto;
+    gap: 10px;
+    display: flex;
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     height: 50px;
-    background-image: linear-gradient(to bottom right, rgb(5,144,248), rgb(60,224,249));
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 32px;
-    font-weight: 600;
+    background-image: linear-gradient(to bottom right, rgb(246,252,254), rgb(255,255,255));
     text-align: left;
+    align-items: center;
     z-index: 3;
+
+    font-family: Georgia, 'Times New Roman', Times, serif; /* Text if picture wasn't loaded*/
+    font-size: 20px;
+    font-weight: 600;
 }
 
 img {
     width: auto;
-    height: 55px;
+    height: 100px;
 }
 
 .panel {
-    top: 300px;
-    left: 0;
+    position: absolute;
+    top: 10%;
+    left: 50px;
     width: 200px;
     display: flex;
     flex-direction: column;
-    background-color: rgb(238, 203, 78);
+    align-items: center;
+    box-sizing: border-box;
+    background-color: rgb(255,255,255);
     border-radius: 10px;
     padding: 10px;
     z-index: 2;
@@ -31,14 +40,14 @@ img {
 
 .content {
     top: 100px;
-    left: 150px;
-    width: 200px;
-    height: 150px;
+    right: 200px;
+    width: 800px;
+    height: 200px;
     background-color: #f0f0f0;
     border: 1px solid #bfb9b9;
     border-radius: 20px;
     overflow: auto;
-    position: relative;
+    position: absolute;
     box-sizing: border-box;
     flex: 2;
     display: flex;
@@ -61,13 +70,3 @@ img {
     padding: 10px;
     z-index: 2;
   }
-
-.top-rectangle {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 100px;
-    background-color:rgb(207, 219, 227);
-    z-index: 1;
-}

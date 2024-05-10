@@ -20,7 +20,6 @@ function MainPage() {
     <div style={{ display: 'flex', flexDirection: 'column', gap: '20px'}}>
       <div class="ICON">
         <img src="../picture/icon.jpg" alt="OneShot 🚀💫" />
-        <p>OneShot 🚀💫</p>
       </div>
       <div style={{ display: 'flex', alignItems: 'flex-start', gap: '20px', width: '80%'}}>
         <div class="panel">
@@ -37,7 +36,6 @@ function MainPage() {
           <TimelineEditor />
         </div>
       </div>
-      <div class="top-rectangle"></div>
     </div>
   );
 }
