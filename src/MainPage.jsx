@@ -17,21 +17,27 @@ function MainPage() {
 
   
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px'}}>
-      <p>OneShot 🚀💫</p>
-      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-start', gap: '20px', width: '90%'}}>
-        <div style={{ flex: '1' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '20px'}}>
+      <div class="ICON">
+        <img src="../picture/icon.jpg" alt="OneShot 🚀💫" />
+        <p>OneShot 🚀💫</p>
+      </div>
+      <div style={{ display: 'flex', alignItems: 'flex-start', gap: '20px', width: '80%'}}>
+        <div class="panel">
           <select value={selectedOption} onChange={handleSelectChange}>
             <option value="video">Video</option>
             <option value="audio">Audio</option>
           </select>
           <UserTab />
         </div>
-        <div style={{ flex: '2', display: 'flex', flexDirection: 'column', gap: '20px' }}>
+        <div class="content">
           <MediaPlayer mediaType={selectedOption} />
+        </div>
+        <div class="bottom">
           <TimelineEditor />
         </div>
       </div>
+      <div class="top-rectangle"></div>
     </div>
   );
 }
