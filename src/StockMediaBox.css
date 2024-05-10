@@ -1,0 +1,21 @@
+.imageGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 10px;
+}
+
+.stockImages {
+    max-width: 200px;
+    max-height: 200px;
+}
+
+.videoGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 10px;
+}
+
+.stockVideos {
+    max-width: 200px;
+    max-height: 150px;
+}

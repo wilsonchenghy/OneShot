@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import AICommandBox from './AICommandBox';
+import UserTab from './UserTab';
 import MediaPlayer from './MediaPlayer';
 import TimelineEditor from './TimelineEditor';
 import './MainPage.css'
@@ -19,13 +19,13 @@ function MainPage() {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px'}}>
       <p>OneShot 🚀💫</p>
-      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-start', gap: '20px', width: '80%'}}>
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-start', gap: '20px', width: '90%'}}>
         <div style={{ flex: '1' }}>
           <select value={selectedOption} onChange={handleSelectChange}>
             <option value="video">Video</option>
             <option value="audio">Audio</option>
           </select>
-          <AICommandBox />
+          <UserTab />
         </div>
         <div style={{ flex: '2', display: 'flex', flexDirection: 'column', gap: '20px' }}>
           <MediaPlayer mediaType={selectedOption} />

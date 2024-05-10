@@ -63,7 +63,7 @@ const TimelineEditor = () => {
         const adjustTimelineScale = (event) => {
             if (event.ctrlKey && event.deltaY !== 0) {  // event.ctrlKey only useful for when using mouse
                 event.preventDefault();  // Prevent default zoom behavior
-                const newScale = Math.max(scale + event.deltaY * 5, 1);
+                const newScale = Math.max(scale + event.deltaY * 3, 1);
                 setScale(newScale);
             }
         };
