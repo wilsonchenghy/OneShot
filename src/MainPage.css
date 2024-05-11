@@ -8,7 +8,7 @@
     left: 0;
     right: 0;
     height: 50px;
-    background-image: linear-gradient(to bottom right, #c2997e, #feeaca);
+    background-image: linear-gradient(to bottom right, #a6e2f9, #6bdfec);
     text-align: left;
     align-items: center;
     z-index: 3;
@@ -16,6 +16,8 @@
     font-family: Georgia, 'Times New Roman', Times, serif; /* Text if picture wasn't loaded*/
     font-size: 20px;
     font-weight: 600;
+
+    transition: background-color 0.3s, color 0.3s;
 }
 
 img {
@@ -29,26 +31,65 @@ img {
     left: 5%;
     width: 30%;
     height: 70%;
+    justify-content: space-between;
     display: flex;
     flex-direction: column;
-    align-items: center;
     box-sizing: border-box;
-    background-color: #dfaa69;
-    border-left: 3px solid #cd976e;
+    background-color: #e7f6f8;
+    border-left: 3px solid #2194bf;
     box-shadow: -3px 0 5px rgba(0, 0, 0, 0.5);
+    gap: 5px;
     border-radius: 30px;
     padding: 10px;
     z-index: 2;
+
+    transition: background-color 0.3s, color 0.3s;
 }
+
+/* Content in the panel */
+.Video-audio-Select {
+    position: relative;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30vh;
+}
+
+.feature-select {
+    bottom: 1%;
+    position: absolute;
+    display: flex;
+    gap: 20px;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+.result-bar {
+    top: 8%;
+    position: absolute;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    width: 100%;
+}
+
+.MediaBox {
+    position: absolute;
+    flex-direction: row;
+    row-gap: 20px;
+    display: block;
+}
+/* End: Content in the panel*/
 
 .content {
     top: 14%;
     right: 2%;
     width: 60%;
     height: 45%;
-    background-color: #dfaa69;
+    background-color: #e7f6f8;
     border: 1px solid #bfb9b9;
-    border-left: 3px solid #cd976e;
+    border-left: 3px solid #2194bf;
     box-shadow: -3px 0 5px rgba(0, 0, 0, 0.5);
     border-radius: 20px;
     overflow: auto;
@@ -59,6 +100,8 @@ img {
     justify-content: center;
     align-items: center;
     z-index: 2;
+
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .bottom {
@@ -69,7 +112,7 @@ img {
     right: 2%;
     width: 59%;
     height: 35%;
-    background-color: #000000;
+    background-color: #1f1f1f;
     border-radius: 10px;
     padding: 0.5%;
     z-index: 2;
@@ -83,6 +126,7 @@ img {
     margin-bottom: 10px;
 }
 
+/* Buttons */
 .button {
   position: absolute;
   left: 5%;
@@ -94,7 +138,7 @@ img {
   border-radius: 12px;
   box-shadow: transparent 0 0 0 3px,rgba(18, 18, 18, .1) 0 6px 20px;
   box-sizing: border-box;
-  color: #121212;
+  color: #0b0720;
   cursor: pointer;
   display: inline-flex;
   flex: 1 1 auto;
@@ -123,10 +167,67 @@ img {
   box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
 }
 
+.button-4 {
+  appearance: none;
+  background-color: #FAFBFC;
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  border-radius: 6px;
+  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+  box-sizing: border-box;
+  color: #24292E;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1em;
+  list-style: none;
+  padding: 6px 16px;
+  position: relative;
+  transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  white-space: nowrap;
+  word-wrap: break-word;
+}
 
+.button-4:hover {
+  background-color: #F3F4F6;
+  text-decoration: none;
+  transition-duration: 0.1s;
+}
+
+.button-4:disabled {
+  background-color: #FAFBFC;
+  border-color: rgba(27, 31, 35, 0.15);
+  color: #959DA5;
+  cursor: default;
+}
+
+.button-4:active {
+  background-color: #EDEFF2;
+  box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
+  transition: none 0s;
+}
+
+.button-4:focus {
+  outline: 1px transparent;
+}
+
+.button-4:before {
+  display: none;
+}
+
+.button-4:-webkit-details-marker {
+  display: none;
+}
+
+/* Dark Theme */
 body.dark {
-    background-color: #00010d;
-    color: #fff;
+    color: #ffffff;
+    background-color: #11002b;
 }
 
 body.dark .ICON {
@@ -134,13 +235,13 @@ body.dark .ICON {
 }
 
 body.dark .panel {
-    background-color: #131321;
+    background-color: #1a1a2e;
     border-left: 3px solid #16171f;
 }
 
 body.dark .content {
     border: 1px solid #181717;
-    background-color: #131321;
+    background-color: #1a1a2e;
     border-left: 3px solid #16171f;
 }
 

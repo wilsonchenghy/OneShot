@@ -9,9 +9,14 @@ import './MainPage.css'
 function MainPage() {
 
   const [selectedOption, setSelectedOption] = useState('video');
+  const [isDark, setIsDark] = useState(false);
 
   const handleSelectChange = (event) => {
     setSelectedOption(event.target.value);
+  };
+  const toggleTheme = () => {
+    setIsDark(!isDark);
+    document.body.classList.toggle('dark');
   };
   
 
@@ -23,7 +28,7 @@ function MainPage() {
       </div>
       <div style={{ display: 'flex', alignItems: 'flex-start', gap: '20px', width: '80%'}}>
         <div class="panel">
-          <select value={selectedOption} onChange={handleSelectChange}>
+          <select class="Video-audio-Select" value={selectedOption} onChange={handleSelectChange}>
             <option value="video">Video</option>
             <option value="audio">Audio</option>
           </select>
@@ -35,6 +40,7 @@ function MainPage() {
         <div class="bottom">
           <TimelineEditor />
         </div>
+        <button class="button" id="button" role="button" onClick={toggleTheme}>Light/Dark</button>
       </div>
       <div class="top-rectangle"></div>
     </div>
