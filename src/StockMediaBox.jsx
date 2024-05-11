@@ -39,9 +39,9 @@ const StockMediaBox = ({ onVideoDoubleClick }) => {
     };
 
     return (
-        <div class="MediaBox">
+        <div className="MediaBox">
             <input type="text" value={imageQuery} onChange={(e) => setImageQuery(e.target.value)} />
-            <button class="button-4" onClick={fetchImages}>Search Images</button>
+            <button className="button-4" onClick={fetchImages}>Search Images</button>
             <div className='imageGrid'>
                 {images.map((image) => (
                     <img key={image.id} src={image.src.medium} alt={image.photographer} className='stockImages' />
@@ -51,7 +51,7 @@ const StockMediaBox = ({ onVideoDoubleClick }) => {
             <br />
 
             <input type="text" value={videoQuery} onChange={(e) => setVideoQuery(e.target.value)} />
-            <button class="button-4" onClick={fetchVideos}>Search Videos</button>
+            <button className="button-4" onClick={fetchVideos}>Search Videos</button>
             <div className='videoGrid'>
                 {videos.map((video) => (
                     <ReactPlayer

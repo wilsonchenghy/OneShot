@@ -79,7 +79,7 @@ const TimelineEditor = () => {
 
 
     return (
-        <div class="bottom" ref={timelineRef}>
+        <div className="bottom" ref={timelineRef}>
             <Timeline
             editorData={timelineData}
             effects={mockEffect}

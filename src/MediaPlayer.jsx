@@ -15,9 +15,9 @@ const MediaPlayer = ({mediaType, timelineData, timelineAddAction}) => {
 
     // For handling video/audio dropbox
     const onDrop = (acceptedFiles) => {
-    const file = acceptedFiles[0];
-    const url = URL.createObjectURL(file);
-    setMediaUrl(url);
+        const file = acceptedFiles[0];
+        const url = URL.createObjectURL(file);
+        setMediaUrl(url);
     };
 
     const acceptType = (mediaType == 'video' ? 'video/*' : 'audio/*');

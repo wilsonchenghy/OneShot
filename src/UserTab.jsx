@@ -14,14 +14,14 @@ const UserTab = () => {
 
   return (
     <div>
-      <div class="result-bar">
+      <div className="result-bar">
         {activeTab === 1 && <AICommandBox />}
         {activeTab === 2 && <StockMediaBox />}
       </div>
       <br />
-      <div class="feature-select">
-        <button class="button-4" onClick={() => switchTab(1)}>AICommandBox</button>
-        <button class="button-4" onClick={() => switchTab(2)}>StockMediaBox</button>
+      <div className="feature-select">
+        <button className="button-4" onClick={() => switchTab(1)}>AICommandBox</button>
+        <button className="button-4" onClick={() => switchTab(2)}>StockMediaBox</button>
       </div>
     </div>
   );
