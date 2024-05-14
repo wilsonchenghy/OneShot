@@ -2,13 +2,17 @@ import React, { useState } from 'react';
 import ReactPlayer from 'react-player';
 import axios from 'axios';
 import './StockMediaBox.css';
+import { useDispatch } from 'react-redux';
+import { previewMediaAction } from './actions';
 
-const StockMediaBox = ({ onVideoDoubleClick }) => {
+const StockMediaBox = () => {
+    
     
     const [imageQuery, setImageQuery] = useState('');
     const [videoQuery, setVideoQuery] = useState('');
     const [images, setImages] = useState([]);
     const [videos, setVideos] = useState([]);
+
 
     const apiKey = import.meta.env.VITE_PEXELS_API_KEY;
 
@@ -38,6 +42,16 @@ const StockMediaBox = ({ onVideoDoubleClick }) => {
         }
     };
 
+
+    // Feature of double clicking on a video to add it to the previewer
+    const dispatch = useDispatch();
+
+    const addVideoToPreviewer = (e, mediaUrl) => {
+        e.preventDefault();  // !!!!!!!!!!!!!! seems to not be working, CANNOT disable double clicking make videos full screen behaviour
+        dispatch(previewMediaAction(mediaUrl));
+    }
+
+
     return (
         <div className="MediaBox">
             <input type="text" value={imageQuery} onChange={(e) => setImageQuery(e.target.value)} />
@@ -59,6 +73,7 @@ const StockMediaBox = ({ onVideoDoubleClick }) => {
                         url={video.video_files[0].link}
                         controls={true}
                         className='stockVideos'
+                        onDoubleClick={(e) => addVideoToPreviewer(e, video.video_files[0].link)}
                     />
                 ))}
             </div>

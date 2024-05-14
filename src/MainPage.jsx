@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import UserTab from './UserTab';
-import MediaPlayer from './MediaPlayer';
+import MediaPreviewer from './MediaPreviewer';
 import TimelineEditor from './TimelineEditor';
 import './MainPage.css'
 
@@ -35,7 +35,7 @@ const MainPage = () => {
           <UserTab />
         </div>
         <div className="content">
-          <MediaPlayer mediaType={selectedOption} />
+          <MediaPreviewer mediaType={selectedOption} />
         </div>
         <div className="bottom">
           <TimelineEditor />
