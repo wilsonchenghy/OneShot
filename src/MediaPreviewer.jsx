@@ -12,6 +12,7 @@ import { previewMediaAction } from './actions';
 const MediaPreviewer = ({mediaType, timelineData, timelineAddAction}) => {
 
     const mediaUrl = useSelector(state => state.mediaPreview.mediaUrl);
+    const isLoading = useSelector(state => state.mediaPreview.isLoading);
 
     // useState
     const [durationTimelineData, setDurationTimelineData] = useState(null);
@@ -60,8 +61,14 @@ const MediaPreviewer = ({mediaType, timelineData, timelineAddAction}) => {
     return (
         <div>
             <div {...getRootProps()} style={{ border: '1px dashed #ccc', padding: '20px', textAlign: 'center' }}>
-                <input {...getInputProps()} />
-                <p>Drag & drop a {mediaType == 'video' ? 'video' : 'audio'} file here, or click to select one</p>
+                {isLoading ? (
+                    <p>loading ... </p>
+                ) : (
+                    <div>
+                        <input {...getInputProps()} />
+                        <p>Drag & drop a {mediaType == 'video' ? 'video' : 'audio'} file here, or click to select one</p>
+                    </div>
+                )}
             </div>
             {mediaUrl && (
                 (mediaType == 'video' ? <ReactPlayer url={mediaUrl} controls={true} width="100%" height="auto" onDuration={getDuration}/> : <ReactPlayer url={mediaUrl} controls={true} width="100%" height="50px" onDuration={getDuration}/>)
