@@ -3,21 +3,27 @@ import { connect } from 'react-redux';
 import { timelineAddAction } from './actions';
 import ReactPlayer from 'react-player';
 import { useDropzone } from 'react-dropzone';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { previewMediaAction } from './actions';
 
 
 
-const MediaPlayer = ({mediaType, timelineData, timelineAddAction}) => {
+const MediaPreviewer = ({mediaType, timelineData, timelineAddAction}) => {
+
+    const mediaUrl = useSelector(state => state.mediaPreview.mediaUrl);
 
     // useState
-    const [mediaUrl, setMediaUrl] = useState(null);
     const [durationTimelineData, setDurationTimelineData] = useState(null);
 
 
     // For handling video/audio dropbox
+    const dispatch = useDispatch();
+
     const onDrop = (acceptedFiles) => {
-    const file = acceptedFiles[0];
-    const url = URL.createObjectURL(file);
-    setMediaUrl(url);
+        const file = acceptedFiles[0];
+        const url = URL.createObjectURL(file);
+        dispatch(previewMediaAction(url));
     };
 
     const acceptType = (mediaType == 'video' ? 'video/*' : 'audio/*');
@@ -84,4 +90,4 @@ const mapDispatchToProps = {
 
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(MediaPlayer);
+export default connect(mapStateToProps, mapDispatchToProps)(MediaPreviewer);

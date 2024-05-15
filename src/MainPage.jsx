@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import UserTab from './UserTab';
-import MediaPlayer from './MediaPlayer';
+import MediaPreviewer from './MediaPreviewer';
 import TimelineEditor from './TimelineEditor';
 import './MainPage.css'
 
 
 
-function MainPage() {
+const MainPage = () => {
 
   const [selectedOption, setSelectedOption] = useState('video');
   const [isDark, setIsDark] = useState(false);
@@ -23,26 +23,26 @@ function MainPage() {
   
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '20px'}}>
-      <div class="ICON">
+      <div className="ICON">
         <img src="../picture/icon.jpg" alt="OneShot 🚀💫" />
       </div>
       <div style={{ display: 'flex', alignItems: 'flex-start', gap: '20px', width: '80%'}}>
-        <div class="panel">
-          <select class="Video-audio-Select" value={selectedOption} onChange={handleSelectChange}>
+        <div className="panel">
+          <select className="Video-audio-Select" value={selectedOption} onChange={handleSelectChange}>
             <option value="video">Video</option>
             <option value="audio">Audio</option>
           </select>
           <UserTab />
         </div>
-        <div class="content">
-          <MediaPlayer mediaType={selectedOption} />
+        <div className="content">
+          <MediaPreviewer mediaType={selectedOption} />
         </div>
-        <div class="bottom">
+        <div className="bottom">
           <TimelineEditor />
         </div>
-        <button class="button" id="button" role="button" onClick={toggleTheme}>Light/Dark</button>
+        <button className="button" id="button" role="button" onClick={toggleTheme}>Light/Dark</button>
       </div>
-      <div class="top-rectangle"></div>
+      <div className="top-rectangle"></div>
     </div>
   );
 }

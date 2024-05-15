@@ -2,13 +2,17 @@ import React, { useState } from 'react';
 import ReactPlayer from 'react-player';
 import axios from 'axios';
 import './StockMediaBox.css';
+import { useDispatch } from 'react-redux';
+import { previewMediaAction } from './actions';
 
-const StockMediaBox = ({ onVideoDoubleClick }) => {
+const StockMediaBox = () => {
+    
     
     const [imageQuery, setImageQuery] = useState('');
     const [videoQuery, setVideoQuery] = useState('');
     const [images, setImages] = useState([]);
     const [videos, setVideos] = useState([]);
+
 
     const apiKey = import.meta.env.VITE_PEXELS_API_KEY;
 
@@ -38,10 +42,20 @@ const StockMediaBox = ({ onVideoDoubleClick }) => {
         }
     };
 
+
+    // Feature of double clicking on a video to add it to the previewer
+    const dispatch = useDispatch();
+
+    const addVideoToPreviewer = (e, mediaUrl) => {
+        e.preventDefault();  // !!!!!!!!!!!!!! seems to not be working, CANNOT disable double clicking make videos full screen behaviour
+        dispatch(previewMediaAction(mediaUrl));
+    }
+
+
     return (
-        <div class="MediaBox">
+        <div className="MediaBox">
             <input type="text" value={imageQuery} onChange={(e) => setImageQuery(e.target.value)} />
-            <button class="button-4" onClick={fetchImages}>Search Images</button>
+            <button className="button-4" onClick={fetchImages}>Search Images</button>
             <div className='imageGrid'>
                 {images.map((image) => (
                     <img key={image.id} src={image.src.medium} alt={image.photographer} className='stockImages' />
@@ -51,7 +65,7 @@ const StockMediaBox = ({ onVideoDoubleClick }) => {
             <br />
 
             <input type="text" value={videoQuery} onChange={(e) => setVideoQuery(e.target.value)} />
-            <button class="button-4" onClick={fetchVideos}>Search Videos</button>
+            <button className="button-4" onClick={fetchVideos}>Search Videos</button>
             <div className='videoGrid'>
                 {videos.map((video) => (
                     <ReactPlayer
@@ -59,6 +73,7 @@ const StockMediaBox = ({ onVideoDoubleClick }) => {
                         url={video.video_files[0].link}
                         controls={true}
                         className='stockVideos'
+                        onDoubleClick={(e) => addVideoToPreviewer(e, video.video_files[0].link)}
                     />
                 ))}
             </div>

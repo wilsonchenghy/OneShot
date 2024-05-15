@@ -24,7 +24,7 @@ const AICommandBox = () => {
 
     return (
         <div>
-        <div class="commentbox">
+        <div className="commentbox">
             {messages.map((message, index) => (
             <div key={index} style={{ padding: '5px', textAlign: message.sender === 'user' ? 'right' : 'left' }}>
                 {message.text}
