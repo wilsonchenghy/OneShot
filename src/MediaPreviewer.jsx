@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { timelineAddAction } from './actions';
 import ReactPlayer from 'react-player';
@@ -38,7 +38,7 @@ const MediaPreviewer = ({mediaType, timelineData, timelineAddAction}) => {
     }
 
 
-    // Add video/audio data to the timelineEditor
+    // Add video/audio data to the timelineEditor (use useEffect to automatically add the data once any video/audio is added to the previewer)
     const handleTimelineAddData = () => {
         const id = timelineData.length.toString()
 
@@ -55,6 +55,12 @@ const MediaPreviewer = ({mediaType, timelineData, timelineAddAction}) => {
         };
         timelineAddAction(newTimelineData);
     };
+
+    useEffect(() => {
+        if (durationTimelineData != null) {
+            handleTimelineAddData();
+        }
+    }, [durationTimelineData]);
 
     
 
@@ -73,13 +79,6 @@ const MediaPreviewer = ({mediaType, timelineData, timelineAddAction}) => {
             {mediaUrl && (
                 (mediaType == 'video' ? <ReactPlayer url={mediaUrl} controls={true} width="100%" height="auto" onDuration={getDuration}/> : <ReactPlayer url={mediaUrl} controls={true} width="100%" height="50px" onDuration={getDuration}/>)
             )}
-
-            {durationTimelineData != null && (
-            <div>
-                <button onClick={handleTimelineAddData}>Add Timeline Data</button>
-            </div>
-            )}
-
         </div>
     )
 }
