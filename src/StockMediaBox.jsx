@@ -13,8 +13,20 @@ const StockMediaBox = () => {
     const [images, setImages] = useState([]);
     const [videos, setVideos] = useState([]);
 
+    const [visibleGrid, setVisibleGrid] = useState('none');
 
     const apiKey = import.meta.env.VITE_PEXELS_API_KEY;
+
+
+    const handleButtonClick = () => {
+        setVisibleGrid('imageGrid');  // First function call
+        fetchImages(); // Second function call
+    };
+    const handleButtonClick2 = () => {
+        setVisibleGrid('videoGrid');  // First function call
+        fetchVideos(); // Second function call
+    };
+
 
     const fetchImages = async () => {
         try {
@@ -56,20 +68,20 @@ const StockMediaBox = () => {
         <div>
             <div className="MediaBox">
             <input className="inputbox" type="text" value={imageQuery} onChange={(e) => setImageQuery(e.target.value)} />
-            <button className="button-4 search" onClick={fetchImages}>Search Images</button>
+            <button className="button-4 search" onClick={handleButtonClick} >Search Images</button>
             <br />
             <input className="inputbox search" type="text" value={videoQuery} onChange={(e) => setVideoQuery(e.target.value)} />
-            <button className="button-4" onClick={fetchVideos}>Search Videos</button>
+            <button className="button-4" onClick={handleButtonClick2}>Search Videos</button>
             <br />
             </div>
 
-            <div className='imageGrid'>
+            <div className={visibleGrid === 'imageGrid' ? 'imageGrid' : 'hidden'}>
                 {images.map((image) => (
                     <img key={image.id} src={image.src.medium} alt={image.photographer} className='stockImages' />
                 ))}
             </div>
             <br />
-            <div className='videoGrid'>
+            <div className={visibleGrid === 'videoGrid' ? 'videoGrid' : 'hidden'}>
                 {videos.map((video) => (
                     <ReactPlayer
                         key={video.id}

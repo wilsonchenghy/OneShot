@@ -119,6 +119,10 @@ img {
   justify-content: center;
   width: 100%;
 }
+
+.hidden {
+  display: none;
+}
 /* End: Content in the panel*/
 
 .content {
