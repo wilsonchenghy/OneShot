@@ -33,6 +33,7 @@ img {
     height: 70%;
     justify-content: space-between;
     display: flex;
+    overflow: hidden;
     flex-direction: column;
     box-sizing: border-box;
     background-color: #e7f6f8;
@@ -56,23 +57,13 @@ img {
     font-size: 1em;
 }
 
-.feature-select {
-    bottom: 1%;
-    position: absolute;
-    display: flex;
-    gap: 20px;
-    flex-direction: row;
-    justify-content: center;
-    width: 100%;
-}
-
-.selection-result-bar {
-    top: 8%;
-    position: absolute;
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    width: 100%;
+.commentbox {
+  height: 55vh;
+  width: 25vh;
+  overflow-y: scroll;
+  border: 1px solid #a2a1a1;
+  margin-bottom: 10px;
+  border-radius: 20px;
 }
 
 .MediaBox {
@@ -90,6 +81,43 @@ img {
     position: relative;
     font-size: 1vw;
     grid-column: 1;
+}
+
+.imageGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    height: 60%;
+    overflow: scroll;
+    gap: 5px;
+    align-items: center;
+}
+
+.videoGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  height: 40%;
+  overflow: scroll;
+  gap: 5px;
+  align-items: center;
+}
+
+.selection-result-bar {
+  top: 8%;
+  position: absolute;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  width: 100%;
+}
+
+.feature-select {
+  bottom: 1%;
+  position: absolute;
+  display: flex;
+  gap: 20px;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
 }
 /* End: Content in the panel*/
 
@@ -127,14 +155,6 @@ img {
     border-radius: 10px;
     padding: 0.5%;
     z-index: 2;
-}
-
-.commentbox {
-    height: 55vh;
-    width: 25vh;
-    overflow-y: scroll;
-    border: 1px solid #a2a1a1;
-    margin-bottom: 10px;
 }
 
 /* Theme Button */

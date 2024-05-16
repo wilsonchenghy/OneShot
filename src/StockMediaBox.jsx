@@ -53,19 +53,22 @@ const StockMediaBox = () => {
 
 
     return (
-        <div className="MediaBox">
+        <div>
+            <div className="MediaBox">
             <input className="inputbox" type="text" value={imageQuery} onChange={(e) => setImageQuery(e.target.value)} />
             <button className="button-4 search" onClick={fetchImages}>Search Images</button>
             <br />
-            <br />
             <input className="inputbox search" type="text" value={videoQuery} onChange={(e) => setVideoQuery(e.target.value)} />
             <button className="button-4" onClick={fetchVideos}>Search Videos</button>
+            <br />
+            </div>
+
             <div className='imageGrid'>
                 {images.map((image) => (
                     <img key={image.id} src={image.src.medium} alt={image.photographer} className='stockImages' />
                 ))}
             </div>
-
+            <br />
             <div className='videoGrid'>
                 {videos.map((video) => (
                     <ReactPlayer
