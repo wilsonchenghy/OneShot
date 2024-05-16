@@ -3,7 +3,9 @@ import ReactPlayer from 'react-player';
 import axios from 'axios';
 import './StockMediaBox.css';
 import { useDispatch } from 'react-redux';
-import { previewMediaAction } from './actions';
+import { previewMediaAction, setPreviewerLoadingAction } from './actions';
+
+
 
 const StockMediaBox = () => {
     
@@ -15,6 +17,7 @@ const StockMediaBox = () => {
 
     const [visibleGrid, setVisibleGrid] = useState('none');
 
+    // PEXELS API Key
     const apiKey = import.meta.env.VITE_PEXELS_API_KEY;
 
 
@@ -28,6 +31,7 @@ const StockMediaBox = () => {
     };
 
 
+    // Fetching Stock images
     const fetchImages = async () => {
         try {
             const response = await axios.get(`https://api.pexels.com/v1/search?query=${imageQuery}&per_page=10`, {
@@ -41,9 +45,10 @@ const StockMediaBox = () => {
         }
     };
 
+    // Fetching stock videos
     const fetchVideos = async () => {
         try {
-            const response = await axios.get(`https://api.pexels.com/v1/videos/search?query=${videoQuery}&per_page=10`, {
+            const response = await axios.get(`https://api.pexels.com/videos/search?query=${videoQuery}&per_page=10`, {
                 headers: {
                     Authorization: apiKey,
                 },
@@ -55,13 +60,33 @@ const StockMediaBox = () => {
     };
 
 
-    // Feature of double clicking on a video to add it to the previewer
+
     const dispatch = useDispatch();
 
+    // Feature of double clicking on a video to add it to the previewer
+    const addImageToPreviewer = (imagePath) => {
+        dispatch(setPreviewerLoadingAction(true));
+        
+        axios.post('http://127.0.0.1:5000/generate_video', {
+            imagePath: imagePath,
+            duration: 5
+        })
+        .then(response => {
+            let mediaPath = './Backend/' + response.data;
+            dispatch(setPreviewerLoadingAction(false));
+            dispatch(previewMediaAction(mediaPath));
+        })
+        .catch(error => {
+            console.error('Error generating video:', error);
+        });
+    };
+
+    // Feature of double clicking on a video to add it to the previewer
     const addVideoToPreviewer = (e, mediaUrl) => {
         e.preventDefault();  // !!!!!!!!!!!!!! seems to not be working, CANNOT disable double clicking make videos full screen behaviour
         dispatch(previewMediaAction(mediaUrl));
     }
+
 
 
     return (
@@ -77,7 +102,7 @@ const StockMediaBox = () => {
 
             <div className={visibleGrid === 'imageGrid' ? 'imageGrid' : 'hidden'}>
                 {images.map((image) => (
-                    <img key={image.id} src={image.src.medium} alt={image.photographer} className='stockImages' />
+                    <img key={image.id} src={image.src.medium} alt={image.photographer} className='stockImages' onDoubleClick={() => addImageToPreviewer(image.src.medium)} />
                 ))}
             </div>
             <br />
