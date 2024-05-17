@@ -33,6 +33,7 @@ img {
     height: 70%;
     justify-content: space-between;
     display: flex;
+    overflow: hidden;
     flex-direction: column;
     box-sizing: border-box;
     background-color: #e7f6f8;
@@ -52,33 +53,75 @@ img {
     display: flex;
     margin-left: auto;
     margin-right: auto;
-    width: 30vh;
+    width: 50%;
+    font-size: 1em;
 }
 
-.feature-select {
-    bottom: 1%;
-    position: absolute;
-    display: flex;
-    gap: 20px;
-    flex-direction: row;
-    justify-content: center;
-    width: 100%;
-}
-
-.result-bar {
-    top: 8%;
-    position: absolute;
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    width: 100%;
+.commentbox {
+  height: 55vh;
+  width: 25vh;
+  overflow-y: scroll;
+  border: 1px solid #a2a1a1;
+  margin-bottom: 10px;
+  border-radius: 20px;
 }
 
 .MediaBox {
-    position: absolute;
-    flex-direction: row;
-    row-gap: 20px;
-    display: block;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5px;
+    align-items: center;
+}
+
+.button-4 .search {
+    grid-column: 2;
+}
+
+.inputbox {
+    position: relative;
+    font-size: 1vw;
+    grid-column: 1;
+}
+
+.imageGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    height: 60%;
+    overflow: scroll;
+    gap: 5px;
+    align-items: center;
+}
+
+.videoGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  height: 40%;
+  overflow: scroll;
+  gap: 5px;
+  align-items: center;
+}
+
+.selection-result-bar {
+  top: 8%;
+  position: absolute;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  width: 100%;
+}
+
+.feature-select {
+  bottom: 1%;
+  position: absolute;
+  display: flex;
+  gap: 20px;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.hidden {
+  display: none;
 }
 /* End: Content in the panel*/
 
@@ -118,15 +161,7 @@ img {
     z-index: 2;
 }
 
-.commentbox {
-    height: 55vh;
-    width: 25vh;
-    overflow-y: scroll;
-    border: 1px solid #a2a1a1;
-    margin-bottom: 10px;
-}
-
-/* Buttons */
+/* Theme Button */
 .button {
   position: absolute;
   left: 5%;
@@ -167,7 +202,9 @@ img {
   box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
 }
 
+/* Feature Button */
 .button-4 {
+  width: 10vw;
   appearance: none;
   background-color: #FAFBFC;
   border: 1px solid rgba(27, 31, 35, 0.15);
@@ -178,7 +215,7 @@ img {
   cursor: pointer;
   display: inline-block;
   font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-  font-size: 12px;
+  font-size: 0.85vw;
   font-weight: 500;
   line-height: 1em;
   list-style: none;
@@ -227,7 +264,7 @@ img {
 /* Dark Theme */
 body.dark {
     color: #ffffff;
-    background-color: #11002b;
+    background-color: #160c22;
 }
 
 body.dark .ICON {
@@ -235,18 +272,18 @@ body.dark .ICON {
 }
 
 body.dark .panel {
-    background-color: #1a1a2e;
+    background-color: #1a1a42;
     border-left: 3px solid #16171f;
 }
 
 body.dark .content {
     border: 1px solid #181717;
-    background-color: #1a1a2e;
+    background-color: #1a1a42;
     border-left: 3px solid #16171f;
 }
 
 body.dark .button {
-    background-color: #1c202f;
+    background-color: #1a1a42;
     color: #fff;
 }
 

@@ -14,7 +14,7 @@ const UserTab = () => {
 
   return (
     <div>
-      <div className="result-bar">
+      <div className="selection-result-bar">
         {activeTab === 1 && <AICommandBox />}
         {activeTab === 2 && <StockMediaBox />}
       </div>

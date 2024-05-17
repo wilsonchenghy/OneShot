@@ -15,9 +15,21 @@ const StockMediaBox = () => {
     const [images, setImages] = useState([]);
     const [videos, setVideos] = useState([]);
 
+    const [visibleGrid, setVisibleGrid] = useState('none');
 
     // PEXELS API Key
     const apiKey = import.meta.env.VITE_PEXELS_API_KEY;
+
+
+    const handleButtonClick = () => {
+        setVisibleGrid('imageGrid');  // First function call
+        fetchImages(); // Second function call
+    };
+    const handleButtonClick2 = () => {
+        setVisibleGrid('videoGrid');  // First function call
+        fetchVideos(); // Second function call
+    };
+
 
     // Fetching Stock images
     const fetchImages = async () => {
@@ -78,20 +90,23 @@ const StockMediaBox = () => {
 
 
     return (
-        <div className="MediaBox">
-            <input type="text" value={imageQuery} onChange={(e) => setImageQuery(e.target.value)} />
-            <button className="button-4" onClick={fetchImages}>Search Images</button>
-            <div className='imageGrid'>
+        <div>
+            <div className="MediaBox">
+            <input className="inputbox" type="text" value={imageQuery} onChange={(e) => setImageQuery(e.target.value)} />
+            <button className="button-4 search" onClick={handleButtonClick} >Search Images</button>
+            <br />
+            <input className="inputbox search" type="text" value={videoQuery} onChange={(e) => setVideoQuery(e.target.value)} />
+            <button className="button-4" onClick={handleButtonClick2}>Search Videos</button>
+            <br />
+            </div>
+
+            <div className={visibleGrid === 'imageGrid' ? 'imageGrid' : 'hidden'}>
                 {images.map((image) => (
                     <img key={image.id} src={image.src.medium} alt={image.photographer} className='stockImages' onDoubleClick={() => addImageToPreviewer(image.src.medium)} />
                 ))}
             </div>
-
             <br />
-
-            <input type="text" value={videoQuery} onChange={(e) => setVideoQuery(e.target.value)} />
-            <button className="button-4" onClick={fetchVideos}>Search Videos</button>
-            <div className='videoGrid'>
+            <div className={visibleGrid === 'videoGrid' ? 'videoGrid' : 'hidden'}>
                 {videos.map((video) => (
                     <ReactPlayer
                         key={video.id}
