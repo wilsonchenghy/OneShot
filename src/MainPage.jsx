@@ -2,7 +2,7 @@ import { useState } from 'react';
 import UserTab from './UserTab';
 import MediaPreviewer from './MediaPreviewer';
 import TimelineEditor from './TimelineEditor';
-import './MainPage.css'
+import './css/MainPage.css'
 
 
 

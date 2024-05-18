@@ -1,0 +1,4 @@
+/* This can change the bg colour of the timeline editor timeline blocks*/
+.timeline-editor-action {  /* know the className by using the browser inspect functions*/
+    background-color: #cd9541 !important;
+}

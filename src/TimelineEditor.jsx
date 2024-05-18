@@ -1,14 +1,19 @@
 import { useState, useEffect, useRef } from 'react';
 import { Timeline } from '@xzdarcy/react-timeline-editor';
 import { useSelector } from 'react-redux';
+// import './css/timelineEditor.css' // see if useful later on
 
 
 
 // Temporary
 const mockEffect = {
-  effect0: {
-    id: "effect0",
-    name: "效果0",
+  effect00: {
+    id: "effect00",
+    name: "效果00",
+  },
+  effect01: {
+    id: "effect01",
+    name: "效果01",
   },
   effect1: {
     id: "effect1",
