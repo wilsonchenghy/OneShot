@@ -59,7 +59,7 @@ const TimelinePlayerBar = ({ timelineState, autoScrollWhenPlay, scale }) => {
     timelineCurrentState.listener.on('setTimeByTick', ({ time }) => {
       setPlayingTime(time);
 
-      if (autoScrollWhenPlay.current) {
+      if (autoScrollWhenPlay) {
         const scaleWidth = 160;
         const offset = 800;
 
@@ -73,7 +73,7 @@ const TimelinePlayerBar = ({ timelineState, autoScrollWhenPlay, scale }) => {
       timelineCurrentState.pause();
       timelineCurrentState.listener.offAll();
     };
-  }, [timelineState, autoScrollWhenPlay]);
+  }, [timelineState]);
 
 
 
