@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import { Timeline } from '@xzdarcy/react-timeline-editor';
 import { useSelector } from 'react-redux';
-// import './css/timelineEditor.css' // see if useful later on
+import TimelinePlayerBar from './TimelinePlayerBar';
+// import './css/TimelineEditor.css' // see if useful later on
 
 
 
@@ -82,15 +83,23 @@ const TimelineEditor = () => {
     }, [scale]);
 
 
+    // For TimelinePlayerBar
+    const timelineState = useRef(null);
+    const isAutoScrollWhenPlay = useRef(true);
+
+
 
     return (
         <div className="bottom" ref={timelineRef}>
+            <TimelinePlayerBar timelineState={timelineState} autoScrollWhenPlay={isAutoScrollWhenPlay} scale={scale} />
+
             <Timeline
             editorData={timelineData}
             effects={mockEffect}
             style={{width: '100%', height: '100%'}}
             onChange={() => {console.log('change')}}
             autoScroll={true}
+            ref={timelineState}
             scale={scale}
             getScaleRender={(scaleObject) => <CustomScale scale={scaleObject}/>}
             />
