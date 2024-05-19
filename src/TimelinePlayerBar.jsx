@@ -59,11 +59,11 @@ const TimelinePlayerBar = ({ timelineState, autoScrollWhenPlay, scale }) => {
     timelineCurrentState.listener.on('setTimeByTick', ({ time }) => {
       setPlayingTime(time);
 
-      if (autoScrollWhenPlay) {
-        const scaleWidth = 160;
-        const offset = 800;
+      const scaleWidth = 160;
+      const offset = 800;
+      const cursorPosition = time * (scaleWidth / scale) - offset;  // relative to autoScrollWhenPlay point  // May have to be changed later
 
-        const cursorPosition = time * (scaleWidth / scale) - offset;
+      if (cursorPosition >= 0 && autoScrollWhenPlay) {
         timelineState.current.setScrollLeft(cursorPosition);
       }
     });
