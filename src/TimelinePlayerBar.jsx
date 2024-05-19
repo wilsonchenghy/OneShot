@@ -61,6 +61,7 @@ const TimelinePlayerBar = ({ timelineState, autoScrollWhenPlay, scale }) => {
 
       const scaleWidth = 160;
       const offset = 800;
+      // There is an issue below where the scale variable get stuck at its initial value and don't change according to what scale is actually is at a certain moment
       const cursorPosition = time * (scaleWidth / scale) - offset;  // relative to autoScrollWhenPlay point  // May have to be changed later
 
       if (cursorPosition >= 0 && autoScrollWhenPlay) {
