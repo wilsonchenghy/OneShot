@@ -22,7 +22,7 @@ const MainPage = () => {
 
   
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '20px'}}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', width: '100%', height:'100%'}}>
       <div className="ICON">
         <img src="../picture/icon.jpg" alt="OneShot 🚀💫" />
       </div>
@@ -34,10 +34,10 @@ const MainPage = () => {
           </select>
           <UserTab />
         </div>
-        <div className="content">
+        <div className="Upload">
           <MediaPreviewer mediaType={selectedOption} />
         </div>
-        <div className="bottom">
+        <div className="Timeline">
           <TimelineEditor />
         </div>
         <button className="button" id="button" role="button" onClick={toggleTheme}>Light/Dark</button>

@@ -1,3 +1,4 @@
+/*The top/headline of the web*/
 .ICON{
     display: inline-block;
     margin: auto;
@@ -25,6 +26,7 @@ img {
     height: 100px;
 }
 
+/*The integrated features of the web, on the left of the web*/
 .panel {
     position: absolute;
     top: 14%;
@@ -125,7 +127,8 @@ img {
 }
 /* End: Content in the panel*/
 
-.content {
+/*Drop and upload area of the web*/
+.Upload {
     top: 14%;
     right: 2%;
     width: 60%;
@@ -151,14 +154,14 @@ img {
     flex: 2;
     position: fixed;
     justify-content: center;
-    overflow: scroll;
+    overflow-y: scroll;
     bottom: 2%;
     right: 2%;
     width: 59%;
     height: 35%;
     background-color: #1f1f1f;
     border-radius: 10px;
-    padding: 0.5%;
+    padding: 10px;
     z-index: 2;
 }
 

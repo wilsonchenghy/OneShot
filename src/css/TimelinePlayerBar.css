@@ -1,6 +1,9 @@
 .timelinePlayerBar {
-  height: 28px;
+  font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  position: sticky;
+  height: 35px;
   width: 100%;
+  border-radius: 5px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -9,20 +12,61 @@
 }
 
 .playOrPauseButton {
-  width: 35px;
-  height: 25px;
-  border-radius: 3px;
-  display: flex;
-  background-color: #9d9d9d;
-  justify-content: center;
   align-items: center;
+  background-color: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: .25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: rgba(0, 0, 0, 0.85);
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 12px;
+  font-weight: 500;
+  justify-content: center;
+  margin: 5px;
+  position: relative;
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  height: 25px;
+  width: 50px;
+}
+
+.playOrPauseButton:hover,
+.playOrPauseButton:focus {
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.playOrPauseButton:hover {
+  transform: translateY(-1px);
+}
+
+.playOrPauseButton:active {
+  background-color: #F0F0F1;
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+  color: rgba(0, 0, 0, 0.65);
+  transform: translateY(0);
 }
 
 .displayTime {
-  font-size: 15px;
+  font-size: 14px;
   margin: 0 20px;
 }
 
 .playerSpeedControl {
+  position: absolute;
+  left: 200px;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: repeat(5,1fr);
+  gap: 20px;
   justify-self: flex-end;
+  font-size: 14px;
 }
