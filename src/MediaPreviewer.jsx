@@ -78,7 +78,8 @@ const MediaPreviewer = ({mediaType, timelineData, timelineAddAction}) => {
             </div>
             {mediaUrl && (
                 (mediaType == 'video' ? <ReactPlayer url={mediaUrl} controls={true} width="100%" height="auto" onDuration={getDuration}/> : <ReactPlayer url={mediaUrl} controls={true} width="100%" height="50px" onDuration={getDuration}/>)
-            )}
+            )}            
+            <div id="player-ground-1"></div>  {/* Temporary */}
         </div>
     )
 }
