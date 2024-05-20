@@ -1,6 +1,7 @@
 .timelinePlayerBar {
   font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
   position: sticky;
+  top: 0;
   height: 35px;
   width: 100%;
   border-radius: 5px;
@@ -9,6 +10,7 @@
   align-items: center;
   background-color: #3a3a3a;
   color: #ddd;
+  z-index: 5;
 }
 
 .playOrPauseButton {

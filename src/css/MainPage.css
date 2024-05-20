@@ -1,29 +1,29 @@
 /*The top/headline of the web*/
 .ICON{
-    display: inline-block;
-    margin: auto;
-    gap: 10px;
-    display: flex;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 50px;
-    background-image: linear-gradient(to bottom right, #a6e2f9, #6bdfec);
-    text-align: left;
-    align-items: center;
-    z-index: 3;
+  display: inline-block;
+  margin: auto;
+  gap: 10px;
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  background-image: linear-gradient(to bottom right, #a6e2f9, #6bdfec);
+  text-align: left;
+  align-items: center;
+  z-index: 3;
 
-    font-family: Georgia, 'Times New Roman', Times, serif; /* Text if picture wasn't loaded*/
-    font-size: 20px;
-    font-weight: 600;
+  font-family: Georgia, 'Times New Roman', Times, serif; /* Text if picture wasn't loaded*/
+  font-size: 20px;
+  font-weight: 600;
 
-    transition: background-color 0.3s, color 0.3s;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 img {
-    width: auto;
-    height: 100px;
+  width: auto;
+  height: 100px;
 }
 
 .color {
@@ -89,13 +89,13 @@ img {
 
 /* Content in the panel */
 .Video-audio-Select {
-    position: relative;
-    display: flex;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-    font-size: 1vw;
-    border-radius: 30px;
+  position: relative;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  font-size: 1vw;
+  border-radius: 30px;
 }
 
 .commentbox {
@@ -108,38 +108,43 @@ img {
 }
 
 .MediaBox {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 5px;
-    align-items: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5px;
+  align-items: center;
 }
 
 .button-4 .search {
-    grid-column: 2;
+  grid-column: 2;
 }
 
 .inputbox {
-    position: relative;
-    font-size: 1vw;
-    grid-column: 1;
+  position: relative;
+  font-size: 1vw;
+  grid-column: 1;
 }
 
 .imageGrid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    height: 60%;
-    overflow: scroll;
-    gap: 5px;
-    align-items: center;
-}
-
-.videoGrid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  height: 40%;
+  height: 49%;
   overflow: scroll;
   gap: 5px;
   align-items: center;
+  justify-items: center;
+}
+
+.videoGrid {
+  position: relative;
+  bottom: 40px;
+  display: grid;
+  margin: 55px;
+  grid-template-columns: repeat(2, 10vw);
+  height: 25%;
+  overflow: scroll;
+  gap: 5px;
+  align-items: center;
+  justify-items: center;
 }
 
 .selection-result-bar {
