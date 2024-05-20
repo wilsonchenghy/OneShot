@@ -12,7 +12,7 @@ const StockMediaBox = () => {
     const [videoQuery, setVideoQuery] = useState('');
     const [images, setImages] = useState([]);
     const [videos, setVideos] = useState([]);
-
+    const [visibleGrid, setVisibleGrid] = useState('none');
     // PEXELS API Key
     const apiKey = import.meta.env.VITE_PEXELS_API_KEY;
 
