@@ -251,7 +251,7 @@ img {
 }
 
 .button:hover {
-  box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
+  box-shadow: #121212 0 0 0 1.5px, transparent 0 0 0 0;
 }
 
 
