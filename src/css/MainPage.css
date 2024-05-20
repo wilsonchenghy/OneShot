@@ -136,7 +136,7 @@ img {
 
 .videoGrid {
   position: relative;
-  bottom: 40px;
+  bottom: 60px;
   display: grid;
   margin: 55px;
   grid-template-columns: repeat(2, 10vw);
