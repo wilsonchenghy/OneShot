@@ -3,7 +3,7 @@ import ReactPlayer from 'react-player';
 import axios from 'axios';
 import './css/StockMediaBox.css';
 import { useDispatch } from 'react-redux';
-import { previewMediaAction, setPreviewerLoadingAction } from './redux/actions';
+import { previewMediaAction, setPreviewerLoadingAction } from './redux/actions.js';
 
 const StockMediaBox = () => {
     
