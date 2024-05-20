@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import ReactPlayer from 'react-player';
 import axios from 'axios';
-import './StockMediaBox.css';
+import './css/StockMediaBox.css';
 import { useDispatch } from 'react-redux';
-import { previewMediaAction, setPreviewerLoadingAction } from './actions';
+import { previewMediaAction, setPreviewerLoadingAction } from './redux/actions';
 
 const StockMediaBox = () => {
     const [imageQuery, setImageQuery] = useState('');
