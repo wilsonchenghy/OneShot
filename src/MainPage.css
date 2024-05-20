@@ -26,27 +26,65 @@ img {
     height: 100px;
 }
 
+.color {
+  position: absolute;
+  filter:blur(150px)
+}
+
+.color:nth-child(1){
+  top: -10%;
+  left: 0%;
+  width: 50%;
+  height: 50%;
+  /* top:-350px;
+  width: 600px;
+  height: 600px; */
+  background: rgb(72, 212, 220);
+}
+
+.color:nth-child(2){
+  /* bottom:-130px;
+  left: 80px;
+  width: 500px;
+  height: 500px; */
+  bottom: -10%;
+  left: 40%;
+  width: 55%;
+  height: 50%;
+  background: rgb(8, 140, 145);
+}
+
+.color:nth-child(3){
+  top: 25%;
+  right: 15%;
+  width: 35%;
+  height: 35%;
+  background: rgb(91, 91, 175);
+}
+
 /*The integrated features of the web, on the left of the web*/
 .panel {
-    position: absolute;
-    top: 14%;
-    left: 5%;
-    width: 30%;
-    height: 70%;
-    justify-content: space-between;
-    display: flex;
-    overflow: hidden;
-    flex-direction: column;
-    box-sizing: border-box;
-    background-color: #e7f6f8;
-    border-left: 3px solid #8bd3ed;
-    box-shadow: -3px 0 5px rgba(0, 0, 0, 0.5);
-    gap: 5px;
-    border-radius: 30px;
-    padding: 10px;
-    z-index: 2;
+  position: absolute;
+  top: 14%;
+  left: 5%;
+  width: 30%;
+  height: 70%;
+  justify-content: space-between;
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  box-sizing: border-box;
+  border-radius: 30px;
+  backdrop-filter: blur(2px);
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255,255,255,0.5);
+  border-right: 1px solid rgba(255,255,255,0.3);
+  border-bottom: 1px solid rgba(255,255,255,0.3);
+  padding: 10px;
+  z-index: 2;
 
-    transition: background-color 0.3s, color 0.3s;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 /* Content in the panel */
@@ -56,7 +94,8 @@ img {
     margin-left: auto;
     margin-right: auto;
     width: 50%;
-    font-size: 1em;
+    font-size: 1vw;
+    border-radius: 30px;
 }
 
 .commentbox {
@@ -133,10 +172,12 @@ img {
     right: 2%;
     width: 60%;
     height: 45%;
-    background-color: #e7f6f8;
-    border: 1px solid #bfb9b9;
-    border-left: 3px solid #8bd3ed;
-    box-shadow: -3px 0 5px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+    background-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255,255,255,0.5);
+    border-right: 1px solid rgba(255,255,255,0.3);
+    border-bottom: 1px solid rgba(255,255,255,0.3);
     border-radius: 20px;
     overflow: auto;
     position: absolute;

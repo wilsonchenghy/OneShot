@@ -6,12 +6,12 @@ import { useDispatch } from 'react-redux';
 import { previewMediaAction, setPreviewerLoadingAction } from './redux/actions';
 
 const StockMediaBox = () => {
+    
+    
     const [imageQuery, setImageQuery] = useState('');
     const [videoQuery, setVideoQuery] = useState('');
     const [images, setImages] = useState([]);
     const [videos, setVideos] = useState([]);
-
-    const [visibleGrid, setVisibleGrid] = useState('none');
 
     // PEXELS API Key
     const apiKey = import.meta.env.VITE_PEXELS_API_KEY;
