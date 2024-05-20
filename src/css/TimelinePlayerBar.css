@@ -1,5 +1,5 @@
 .timelinePlayerBar {
-  font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-weight: 200;
   position: sticky;
   top: 0;
   height: 35px;
@@ -24,7 +24,6 @@
   cursor: pointer;
   display: inline-flex;
   font-size: 12px;
-  font-weight: 500;
   justify-content: center;
   margin: 5px;
   position: relative;
