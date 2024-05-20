@@ -13,6 +13,7 @@
   text-align: left;
   align-items: center;
   z-index: 3;
+  border: 2px solid rgba(255, 255, 255, 0.3);
 
   font-family: Georgia, 'Times New Roman', Times, serif; /* Text if picture wasn't loaded*/
   font-size: 20px;
@@ -78,7 +79,7 @@ img {
   backdrop-filter: blur(2px);
   background-color: rgba(255, 255, 255, 0.2);
   box-shadow: 0 25px 45px rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(255,255,255,0.5);
+  border: 2px solid rgba(255, 255, 255, 0.495);
   border-right: 1px solid rgba(255,255,255,0.3);
   border-bottom: 1px solid rgba(255,255,255,0.3);
   padding: 10px;
@@ -222,7 +223,7 @@ img {
   align-items: center;
   background-color: #fff;
   border-radius: 12px;
-  box-shadow: transparent 0 0 0 3px,rgba(18, 18, 18, .1) 0 6px 20px;
+  box-shadow: transparent 0 0 0 5px,rgba(18, 18, 18, .1) 0 6px 20px;
   box-sizing: border-box;
   color: #0b0720;
   cursor: pointer;
@@ -252,6 +253,8 @@ img {
 .button:hover {
   box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
 }
+
+
 
 /* Feature Button */
 .button-4 {
@@ -312,6 +315,8 @@ img {
   display: none;
 }
 
+
+
 /* Dark Theme */
 body.dark {
     color: #ffffff;
@@ -323,18 +328,18 @@ body.dark .ICON {
 }
 
 body.dark .panel {
-    background-color: #1a1a42;
+    background-color: #0000009e;
     border-left: 3px solid #16171f;
 }
 
 body.dark .content {
     border: 1px solid #181717;
-    background-color: #1a1a42;
+    background-color: #0000009e;
     border-left: 3px solid #16171f;
 }
 
 body.dark .button {
-    background-color: #1a1a42;
+    background-color: #0000009e;
     color: #fff;
 }
 
@@ -344,5 +349,5 @@ body.dark button{
 }
 
 body.dark button:hover {
-    box-shadow: #ffffff 0 0 0 3px, transparent 0 0 0 0;
+    box-shadow: #ffffff 0 0 0 1px, transparent 0 0 0 0;
   }
