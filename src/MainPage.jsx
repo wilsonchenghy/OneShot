@@ -1,37 +1,52 @@
 import { useState } from 'react';
 import UserTab from './UserTab';
-import MediaPlayer from './MediaPlayer';
+import MediaPreviewer from './MediaPreviewer';
 import TimelineEditor from './TimelineEditor';
 import './MainPage.css'
 
 
 
-function MainPage() {
+const MainPage = () => {
 
   const [selectedOption, setSelectedOption] = useState('video');
+  const [isDark, setIsDark] = useState(false);
 
   const handleSelectChange = (event) => {
     setSelectedOption(event.target.value);
+  };
+  const toggleTheme = () => {
+    setIsDark(!isDark);
+    document.body.classList.toggle('dark');
   };
   
 
   
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px'}}>
-      <p>OneShot 🚀💫</p>
-      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-start', gap: '20px', width: '90%'}}>
-        <div style={{ flex: '1' }}>
-          <select value={selectedOption} onChange={handleSelectChange}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '20px'}}>
+      <div className="color"></div>
+      <div className="color"></div>
+      <div className="color"></div>
+      
+      <div className="ICON">
+        <img src="../picture/icon.jpg" alt="OneShot 🚀💫" />
+      </div>
+      <div style={{ display: 'flex', alignItems: 'flex-start', gap: '20px', width: '80%'}}>
+        <div className="panel">
+          <select className="Video-audio-Select" value={selectedOption} onChange={handleSelectChange}>
             <option value="video">Video</option>
             <option value="audio">Audio</option>
           </select>
           <UserTab />
         </div>
-        <div style={{ flex: '2', display: 'flex', flexDirection: 'column', gap: '20px' }}>
-          <MediaPlayer mediaType={selectedOption} />
+        <div className="content">
+          <MediaPreviewer mediaType={selectedOption} />
+        </div>
+        <div className="bottom">
           <TimelineEditor />
         </div>
+        <button className="button" id="button" role="button" onClick={toggleTheme}>Light/Dark</button>
       </div>
+      <div className="top-rectangle"></div>
     </div>
   );
 }

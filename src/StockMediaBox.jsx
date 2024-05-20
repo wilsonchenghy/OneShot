@@ -2,15 +2,27 @@ import React, { useState } from 'react';
 import ReactPlayer from 'react-player';
 import axios from 'axios';
 import './StockMediaBox.css';
+import { useDispatch } from 'react-redux';
+import { previewMediaAction, setPreviewerLoadingAction } from './actions';
 
-const StockMediaBox = ({ onVideoDoubleClick }) => {
-    
+const StockMediaBox = () => {
     const [imageQuery, setImageQuery] = useState('');
     const [videoQuery, setVideoQuery] = useState('');
     const [images, setImages] = useState([]);
     const [videos, setVideos] = useState([]);
+    const [visibleGrid, setVisibleGrid] = useState('none');
 
     const apiKey = import.meta.env.VITE_PEXELS_API_KEY;
+
+    const handleButtonClick = () => {
+        setVisibleGrid('imageGrid');
+        fetchImages();
+    };
+
+    const handleButtonClick2 = () => {
+        setVisibleGrid('videoGrid');
+        fetchVideos();
+    };
 
     const fetchImages = async () => {
         try {
@@ -27,7 +39,7 @@ const StockMediaBox = ({ onVideoDoubleClick }) => {
 
     const fetchVideos = async () => {
         try {
-            const response = await axios.get(`https://api.pexels.com/v1/videos/search?query=${videoQuery}&per_page=10`, {
+            const response = await axios.get(`https://api.pexels.com/videos/search?query=${videoQuery}&per_page=10`, {
                 headers: {
                     Authorization: apiKey,
                 },
@@ -38,25 +50,59 @@ const StockMediaBox = ({ onVideoDoubleClick }) => {
         }
     };
 
+    const dispatch = useDispatch();
+
+    const addImageToPreviewer = (imagePath) => {
+        dispatch(setPreviewerLoadingAction(true));
+        
+        axios.post('http://127.0.0.1:5000/generate_video', {
+            imagePath: imagePath,
+            duration: 5
+        })
+        .then(response => {
+            let mediaPath = './Backend/' + response.data;
+            dispatch(setPreviewerLoadingAction(false));
+            dispatch(previewMediaAction(mediaPath));
+        })
+        .catch(error => {
+            console.error('Error generating video:', error);
+        });
+    };
+
+    const addVideoToPreviewer = (e, mediaUrl) => {
+        e.preventDefault();
+        dispatch(previewMediaAction(mediaUrl));
+    };
+
     return (
         <div>
-            <input type="text" value={imageQuery} onChange={(e) => setImageQuery(e.target.value)} />
-            <button onClick={fetchImages}>Search Images</button>
-            <div className='imageGrid'>
-                {images.map((image) => (
-                    <img key={image.id} src={image.src.medium} alt={image.photographer} className='stockImages' />
-                ))}
+            <div className="MediaBox">
+                <div className="input-container">
+                    <input className="inputbox" type="text" value={imageQuery} onChange={(e) => setImageQuery(e.target.value)} />
+                    <button className="button-4 search" onClick={handleButtonClick}>Search Images</button>
+                </div>
+                <br />
+                <div className="input-container">
+                    <input className="inputbox" type="text" value={videoQuery} onChange={(e) => setVideoQuery(e.target.value)} />
+                    <button className="button-4 search" onClick={handleButtonClick2}>Search Videos</button>
+                </div>
+                <br />
             </div>
 
-            <input type="text" value={videoQuery} onChange={(e) => setVideoQuery(e.target.value)} />
-            <button onClick={fetchVideos}>Search Videos</button>
-            <div className='videoGrid'>
+            <div className={visibleGrid === 'imageGrid' ? 'imageGrid' : 'hidden'}>
+                {images.map((image) => (
+                    <img key={image.id} src={image.src.medium} alt={image.photographer} className='stockImages' onDoubleClick={() => addImageToPreviewer(image.src.medium)} />
+                ))}
+            </div>
+            <br />
+            <div className={visibleGrid === 'videoGrid' ? 'videoGrid' : 'hidden'}>
                 {videos.map((video) => (
                     <ReactPlayer
                         key={video.id}
                         url={video.video_files[0].link}
                         controls={true}
                         className='stockVideos'
+                        onDoubleClick={(e) => addVideoToPreviewer(e, video.video_files[0].link)}
                     />
                 ))}
             </div>
