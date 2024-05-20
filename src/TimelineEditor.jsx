@@ -73,7 +73,8 @@ const TimelineEditor = () => {
 
 
     return (
-        <div className="bottom" ref={timelineRef}>
+        <div className="Timeline" ref={timelineRef}>
+        
             <TimelinePlayerBar timelineState={timelineState} autoScrollWhenPlay={true} scale={scale} />
 
             <Timeline
