@@ -146,11 +146,12 @@ img {
 
     transition: background-color 0.3s, color 0.3s;
 }
-
-.bottom {
+/*The bottom part of the web*/
+.Timeline {
     flex: 2;
     position: fixed;
     justify-content: center;
+    overflow: scroll;
     bottom: 2%;
     right: 2%;
     width: 59%;
