@@ -22,7 +22,11 @@ const MainPage = () => {
 
   
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', width: '100%', height:'100%'}}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '20px'}}>
+      <div className="color"></div>
+      <div className="color"></div>
+      <div className="color"></div>
+      
       <div className="ICON">
         <img src="../picture/icon.jpg" alt="OneShot 🚀💫" />
       </div>

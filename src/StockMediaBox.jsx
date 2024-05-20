@@ -1,15 +1,11 @@
 import React, { useState } from 'react';
 import ReactPlayer from 'react-player';
 import axios from 'axios';
-import './css/StockMediaBox.css';
+import './StockMediaBox.css';
 import { useDispatch } from 'react-redux';
-import { previewMediaAction, setPreviewerLoadingAction } from './redux/actions';
-
-
+import { previewMediaAction, setPreviewerLoadingAction } from './actions';
 
 const StockMediaBox = () => {
-    
-    
     const [imageQuery, setImageQuery] = useState('');
     const [videoQuery, setVideoQuery] = useState('');
     const [images, setImages] = useState([]);
@@ -19,7 +15,6 @@ const StockMediaBox = () => {
 
     // PEXELS API Key
     const apiKey = import.meta.env.VITE_PEXELS_API_KEY;
-
 
     const handleButtonClick = () => {
         setVisibleGrid('imageGrid');
@@ -72,7 +67,7 @@ const StockMediaBox = () => {
             duration: 5
         })
         .then(response => {
-            let mediaPath = response.data;
+            let mediaPath = './Backend/' + response.data;
             dispatch(setPreviewerLoadingAction(false));
             dispatch(previewMediaAction(mediaPath));
         })
@@ -92,12 +87,16 @@ const StockMediaBox = () => {
     return (
         <div>
             <div className="MediaBox">
-            <input className="inputbox" type="text" value={imageQuery} onChange={(e) => setImageQuery(e.target.value)} />
-            <button className="button-4 search" onClick={handleButtonClick} >Search Images</button>
-            <br />
-            <input className="inputbox search" type="text" value={videoQuery} onChange={(e) => setVideoQuery(e.target.value)} />
-            <button className="button-4" onClick={handleButtonClick2}>Search Videos</button>
-            <br />
+                <div className="input-container">
+                    <input className="inputbox" type="text" value={imageQuery} onChange={(e) => setImageQuery(e.target.value)} />
+                    <button className="button-4 search" onClick={handleButtonClick}>Search Images</button>
+                </div>
+                <br />
+                <div className="input-container">
+                    <input className="inputbox" type="text" value={videoQuery} onChange={(e) => setVideoQuery(e.target.value)} />
+                    <button className="button-4 search" onClick={handleButtonClick2}>Search Videos</button>
+                </div>
+                <br />
             </div>
 
             <div className={visibleGrid === 'imageGrid' ? 'imageGrid' : 'hidden'}>
