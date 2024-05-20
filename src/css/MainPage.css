@@ -196,6 +196,7 @@ img {
     position: fixed;
     justify-content: center;
     overflow-y: scroll;
+    box-sizing: border-box;
     bottom: 2%;
     right: 2%;
     width: 59%;
