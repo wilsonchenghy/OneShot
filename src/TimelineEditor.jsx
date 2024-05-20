@@ -1,20 +1,10 @@
 import { useState, useEffect, useRef } from 'react';
 import { Timeline } from '@xzdarcy/react-timeline-editor';
 import { useSelector } from 'react-redux';
+import TimelinePlayerBar from './TimelinePlayerBar';
+import { mockEffect } from './mockEffect';
+// import './css/TimelineEditor.css' // see if useful later on
 
-
-
-// Temporary
-const mockEffect = {
-  effect0: {
-    id: "effect0",
-    name: "效果0",
-  },
-  effect1: {
-    id: "effect1",
-    name: "效果1",
-  },
-};
 
 
 // For the custom 00:00:00 time scale
@@ -77,15 +67,23 @@ const TimelineEditor = () => {
     }, [scale]);
 
 
+    // For TimelinePlayerBar
+    const timelineState = useRef(null);
+
+
 
     return (
         <div className="Timeline" ref={timelineRef}>
+        
+            <TimelinePlayerBar timelineState={timelineState} autoScrollWhenPlay={true} scale={scale} />
+
             <Timeline
             editorData={timelineData}
             effects={mockEffect}
             style={{width: '100%', height: '100%'}}
             onChange={() => {console.log('change')}}
             autoScroll={true}
+            ref={timelineState}
             scale={scale}
             getScaleRender={(scaleObject) => <CustomScale scale={scaleObject}/>}
             />

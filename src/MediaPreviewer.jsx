@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { timelineAddAction } from './actions';
+import { timelineAddAction } from './redux/actions';
 import ReactPlayer from 'react-player';
 import { useDropzone } from 'react-dropzone';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { previewMediaAction } from './actions';
+import { previewMediaAction } from './redux/actions';
 
 
 

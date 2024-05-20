@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import ReactPlayer from 'react-player';
 import axios from 'axios';
-import './StockMediaBox.css';
+import './css/StockMediaBox.css';
 import { useDispatch } from 'react-redux';
-import { previewMediaAction, setPreviewerLoadingAction } from './actions';
+import { previewMediaAction, setPreviewerLoadingAction } from './redux/actions';
 
 
 
@@ -22,12 +22,12 @@ const StockMediaBox = () => {
 
 
     const handleButtonClick = () => {
-        setVisibleGrid('imageGrid');  // First function call
-        fetchImages(); // Second function call
+        setVisibleGrid('imageGrid');
+        fetchImages();
     };
     const handleButtonClick2 = () => {
-        setVisibleGrid('videoGrid');  // First function call
-        fetchVideos(); // Second function call
+        setVisibleGrid('videoGrid');
+        fetchVideos();
     };
 
 
@@ -72,7 +72,7 @@ const StockMediaBox = () => {
             duration: 5
         })
         .then(response => {
-            let mediaPath = './Backend/' + response.data;
+            let mediaPath = response.data;
             dispatch(setPreviewerLoadingAction(false));
             dispatch(previewMediaAction(mediaPath));
         })
