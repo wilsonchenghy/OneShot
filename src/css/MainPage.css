@@ -28,7 +28,8 @@ img {
 
 .color {
   position: absolute;
-  filter:blur(150px)
+  filter:blur(150px);
+  will-change: transform;
 }
 
 .color:nth-child(1){
@@ -324,13 +325,11 @@ body.dark .ICON {
 
 body.dark .panel {
     background-color: #1a1a42;
-    border-left: 3px solid #16171f;
 }
 
 body.dark .content {
     border: 1px solid #181717;
     background-color: #1a1a42;
-    border-left: 3px solid #16171f;
 }
 
 body.dark .button {
