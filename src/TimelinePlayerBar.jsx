@@ -81,7 +81,7 @@ const TimelinePlayerBar = ({ timelineState, autoScrollWhenPlay, scale }) => {
   return (
     <div className="timelinePlayerBar">
       <button className="playOrPauseButton" onClick={togglePlayOrPause}>
-          {isPlaying ? <p>pause</p> : <p>play</p>}
+          {isPlaying ? <img className="play_pause_icon" src="../picture/Pause.png" alt="playing"/> : <img className="play_pause_icon" src="../picture/Play.png" alt="paused"/>}
       </button>
       <div className="displayTime">{playingTimeDisplay(time)}</div>
       <div className="playerSpeedControl">
