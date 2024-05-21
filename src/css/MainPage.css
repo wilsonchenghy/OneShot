@@ -1,3 +1,10 @@
+@import url(https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;1,400&display=swap);
+
+* {
+    font-family: 'Poppins', sans-serif !important;
+    font-weight: 300;
+}
+
 /*The top/headline of the web*/
 .ICON{
   display: inline-block;
@@ -13,10 +20,9 @@
   text-align: left;
   align-items: center;
   z-index: 10;
+  border: 2px solid rgba(255, 255, 255, 0.3);
 
-  font-family: Georgia, 'Times New Roman', Times, serif; /* Text if picture wasn't loaded*/
-  font-size: 20px;
-  font-weight: 600;
+  font-size: 20px;  /* Text if picture wasn't loaded*/
 
   transition: background-color 0.3s, color 0.3s;
 }
@@ -79,7 +85,7 @@ img {
   backdrop-filter: blur(2px);
   background-color: rgba(255, 255, 255, 0.2);
   box-shadow: 0 25px 45px rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(255,255,255,0.5);
+  border: 2px solid rgba(255, 255, 255, 0.495);
   border-right: 1px solid rgba(255,255,255,0.3);
   border-bottom: 1px solid rgba(255,255,255,0.3);
   padding: 10px;
@@ -223,15 +229,13 @@ img {
   align-items: center;
   background-color: #fff;
   border-radius: 12px;
-  box-shadow: transparent 0 0 0 3px,rgba(18, 18, 18, .1) 0 6px 20px;
+  box-shadow: transparent 0 0 0 5px,rgba(18, 18, 18, .1) 0 6px 20px;
   box-sizing: border-box;
   color: #0b0720;
   cursor: pointer;
   display: inline-flex;
   flex: 1 1 auto;
-  font-family: Inter,sans-serif;
   font-size: 1.2rem;
-  font-weight: 700;
   justify-content: center;
   line-height: 1;
   margin: 0;
@@ -251,8 +255,10 @@ img {
 }
 
 .button:hover {
-  box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
+  box-shadow: #121212 0 0 0 1.5px, transparent 0 0 0 0;
 }
+
+
 
 /* Feature Button */
 .button-4 {
@@ -266,9 +272,7 @@ img {
   color: #24292E;
   cursor: pointer;
   display: inline-block;
-  font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
   font-size: 0.85vw;
-  font-weight: 500;
   line-height: 1em;
   list-style: none;
   padding: 6px 16px;
@@ -313,6 +317,8 @@ img {
   display: none;
 }
 
+
+
 /* Dark Theme */
 body.dark {
     color: #ffffff;
@@ -324,16 +330,18 @@ body.dark .ICON {
 }
 
 body.dark .panel {
-    background-color: #1a1a42;
+    background-color: #0000009e;
+    border-left: 3px solid #16171f;
 }
 
 body.dark .content {
     border: 1px solid #181717;
-    background-color: #1a1a42;
+    background-color: #0000009e;
+    border-left: 3px solid #16171f;
 }
 
 body.dark .button {
-    background-color: #1a1a42;
+    background-color: #0000009e;
     color: #fff;
 }
 
@@ -343,5 +351,5 @@ body.dark button{
 }
 
 body.dark button:hover {
-    box-shadow: #ffffff 0 0 0 3px, transparent 0 0 0 0;
+    box-shadow: #ffffff 0 0 0 1px, transparent 0 0 0 0;
   }
