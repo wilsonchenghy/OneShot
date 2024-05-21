@@ -73,14 +73,14 @@ const TimelineEditor = () => {
 
 
     return (
-        <div className="Timeline" ref={timelineRef}>
+        <div ref={timelineRef}>
         
             <TimelinePlayerBar timelineState={timelineState} autoScrollWhenPlay={true} scale={scale} />
 
             <Timeline
             editorData={timelineData}
             effects={mockEffect}
-            style={{width: '100%', height: '100%'}}
+            style={{width: '100%', height: '400px'}}
             onChange={() => {console.log('change')}}
             autoScroll={true}
             ref={timelineState}

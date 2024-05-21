@@ -12,7 +12,7 @@
   background-image: linear-gradient(to bottom right, #a6e2f9, #6bdfec);
   text-align: left;
   align-items: center;
-  z-index: 3;
+  z-index: 10;
 
   font-family: Georgia, 'Times New Roman', Times, serif; /* Text if picture wasn't loaded*/
   font-size: 20px;
@@ -140,7 +140,7 @@ img {
   display: grid;
   margin: 55px;
   grid-template-columns: repeat(2, 10vw);
-  height: 25%;
+  height: 30%;
   overflow: scroll;
   gap: 5px;
   align-items: center;
@@ -198,13 +198,13 @@ img {
 /*The bottom part of the web*/
 .Timeline {
     flex: 2;
-    position: fixed;
+    position: absolute;
     justify-content: center;
     overflow-y: scroll;
     box-sizing: border-box;
     bottom: 2%;
     right: 2%;
-    width: 59%;
+    width: 60%;
     height: 35%;
     background-color: #1f1f1f;
     border-radius: 10px;
