@@ -5,6 +5,10 @@
     font-weight: 300;
 }
 
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
+* {box-sizing: border-box;}
+
 /*The top/headline of the web*/
 .ICON{
   display: inline-block;
@@ -75,7 +79,7 @@ img {
   top: 14%;
   left: 5%;
   width: 30%;
-  height: 70%;
+  height: 80%;
   justify-content: space-between;
   display: flex;
   overflow: hidden;
@@ -134,7 +138,7 @@ img {
 .imageGrid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  height: 49%;
+  height: 55%;
   overflow: scroll;
   gap: 5px;
   align-items: center;
@@ -219,7 +223,7 @@ img {
     z-index: 2;
 }
 
-/* Theme Button */
+/* Theme Button 
 .button {
   position: absolute;
   left: 5%;
@@ -258,6 +262,11 @@ img {
   box-shadow: #121212 0 0 0 1.5px, transparent 0 0 0 0;
 }
 
+body.dark .button {
+  background-color: #0000009e;
+  color: #fff;
+}
+*/
 
 
 /* Feature Button */
@@ -317,39 +326,101 @@ img {
   display: none;
 }
 
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background: #888; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px; /* Match the border radius of the container */
+  margin: 10px;
+}
+
+/* Feature Button */
+.checkbox-container{
+  position: absolute;
+  left: 1350px;
+  top: 10px;
+  z-index: 10;
+}
+
+.checkbox {
+  opacity: 0;
+  position: absolute;
+}
+
+.checkbox-label {
+  background-color: #111;
+  width: 50px;
+  height: 26px;
+  border-radius: 50px;
+  position: relative;
+  padding: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  justify-items: center;
+}
+
+.checkbox-label .ball {
+  background-color: #fff;
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  border-radius: 50%;
+  transition: transform 0.2s linear;
+}
+
+.checkbox:checked + .checkbox-label .ball {
+  transform: translateX(24px);
+}
 
 
 /* Dark Theme */
 body.dark {
-    color: #ffffff;
-    background-color: #160c22;
+  color: #ffffff;
+  background-color: #160c22;
 }
 
 body.dark .ICON {
-    background-image: linear-gradient(to bottom right, #181a27, #1d202d);
+  background-image: linear-gradient(to bottom right, #181a27, #1d202d);
 }
 
 body.dark .panel {
-    background-color: #0000009e;
-    border-left: 3px solid #16171f;
+  background-color: #0000009e;
 }
 
 body.dark .content {
-    border: 1px solid #181717;
-    background-color: #0000009e;
-    border-left: 3px solid #16171f;
+  border: 1px solid #181717;
+  background-color: #0000009e;
 }
 
-body.dark .button {
-    background-color: #0000009e;
-    color: #fff;
+body.dark .button-4{
+  background-color: #262b39;
+  color: #acb3d4;
 }
 
-body.dark button{
-    background-color: #262b39;
-    color: #acb3d4;
+body.dark .button-4:hover {
+  box-shadow: #ffffff 0 0 0 1px, transparent 0 0 0 0;
 }
-
-body.dark button:hover {
-    box-shadow: #ffffff 0 0 0 1px, transparent 0 0 0 0;
-  }
+body.dark .checkbox-label {
+  background-color: #eeeded;
+}
+body.dark .checkbox-label .ball{
+  background-color: #3438529e;
+}
+body.dark .playOrPauseButton {
+  background-color: #262b39;
+  color: #acb3d4;
+}

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import UserTab from './UserTab';
 import MediaPreviewer from './MediaPreviewer';
 import TimelineEditor from './TimelineEditor';
@@ -10,13 +10,23 @@ const MainPage = () => {
 
   const [selectedOption, setSelectedOption] = useState('video');
   const [isDark, setIsDark] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  useEffect(() => {
+    if (isDarkMode) {
+      document.body.classList.add('dark');
+    } else {
+      document.body.classList.remove('dark');
+    }
+  }, [isDarkMode]);
+
+  const handleCheckboxChange = () => {
+    setIsDarkMode(!isDarkMode);
+  };
+
 
   const handleSelectChange = (event) => {
     setSelectedOption(event.target.value);
-  };
-  const toggleTheme = () => {
-    setIsDark(!isDark);
-    document.body.classList.toggle('dark');
   };
   
 
@@ -44,7 +54,22 @@ const MainPage = () => {
         <div className="Timeline">
           <TimelineEditor />
         </div>
-        <button className="button" id="button" role="button" onClick={toggleTheme}>Light/Dark</button>
+        
+        <div className='checkbox-container'>
+          <input
+            type="checkbox"
+            className="checkbox"
+            id="checkbox"
+            checked={isDarkMode}
+            onChange={handleCheckboxChange}
+          />
+          <label htmlFor="checkbox" className="checkbox-label">
+            <i className="fas fa-moon"></i>
+            <i className="fas fa-sun"></i>
+            <span className="ball"></span>
+          </label>
+        </div>
+
       </div>
       <div className="top-rectangle"></div>
     </div>
