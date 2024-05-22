@@ -11,7 +11,7 @@
   align-items: center;
   background-color: #3a3a3a;
   color: #ddd;
-  z-index: 5;
+  z-index: 10;
 }
 
 .playOrPauseButton {
@@ -20,7 +20,7 @@
   align-items: center;
   background-color: #a5a5a5;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: .25rem;
+  border-radius: 0.25rem;
   box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
   box-sizing: border-box;
   color: rgba(0, 0, 0, 0.85);
@@ -51,7 +51,7 @@
 }
 
 .playOrPauseButton:active {
-  background-color: #F0F0F1;
+  background-color: #f0f0f1;
   border-color: rgba(0, 0, 0, 0.15);
   box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
   color: rgba(0, 0, 0, 0.65);
@@ -76,7 +76,7 @@
   left: 200px;
   display: grid;
   grid-template-rows: 1fr;
-  grid-template-columns: repeat(5,1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 20px;
   justify-self: flex-end;
   font-size: 14px;
