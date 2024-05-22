@@ -2,19 +2,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 
 * {
-    font-family: 'Poppins', sans-serif !important;
-    font-weight: 300;
+  font-family: "Poppins", sans-serif !important;
+  font-weight: 300;
 }
 
-* {box-sizing: border-box;}
+* {
+  box-sizing: border-box;
+}
 
 /*The top/headline of the web*/
-.ICON{
+.ICON {
   display: inline-block;
   margin: auto;
   gap: 10px;
   display: flex;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -25,7 +27,7 @@
   z-index: 10;
   border: 2px solid rgba(255, 255, 255, 0.3);
 
-  font-size: 20px;  /* Text if picture wasn't loaded*/
+  font-size: 20px; /* Text if picture wasn't loaded*/
 
   transition: background-color 0.3s, color 0.3s;
 }
@@ -37,26 +39,19 @@ img {
 
 .color {
   position: absolute;
-  filter:blur(150px);
+  filter: blur(150px);
   will-change: transform;
 }
 
-.color:nth-child(1){
+.color:nth-child(1) {
   top: -10%;
   left: 0%;
   width: 50%;
   height: 50%;
-  /* top:-350px;
-  width: 600px;
-  height: 600px; */
   background: rgb(72, 212, 220);
 }
 
-.color:nth-child(2){
-  /* bottom:-130px;
-  left: 80px;
-  width: 500px;
-  height: 500px; */
+.color:nth-child(2) {
   bottom: -10%;
   left: 40%;
   width: 55%;
@@ -64,7 +59,7 @@ img {
   background: rgb(8, 140, 145);
 }
 
-.color:nth-child(3){
+.color:nth-child(3) {
   top: 25%;
   right: 15%;
   width: 35%;
@@ -89,8 +84,8 @@ img {
   background-color: rgba(255, 255, 255, 0.2);
   box-shadow: 0 25px 45px rgba(0, 0, 0, 0.5);
   border: 2px solid rgba(255, 255, 255, 0.495);
-  border-right: 1px solid rgba(255,255,255,0.3);
-  border-bottom: 1px solid rgba(255,255,255,0.3);
+  border-right: 1px solid rgba(255, 255, 255, 0.3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   padding: 10px;
   z-index: 2;
 
@@ -109,7 +104,7 @@ img {
 }
 
 .commentbox {
-  position:relative;
+  position: relative;
   right: 10px;
   height: 60vh;
   width: 25vh;
@@ -185,55 +180,56 @@ img {
 
 /*Drop and upload area of the web*/
 .Upload {
-    top: 14%;
-    right: 2%;
-    width: 60%;
-    height: 45%;
-    backdrop-filter: blur(2px);
-    background-color: rgba(255, 255, 255, 0.4);
-    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.5);
-    border: 1px solid rgba(255,255,255,0.5);
-    border-right: 1px solid rgba(255,255,255,0.3);
-    border-bottom: 1px solid rgba(255,255,255,0.3);
-    border-radius: 20px;
-    overflow: auto;
-    position: absolute;
-    box-sizing: border-box;
-    flex: 2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 2;
+  top: 14%;
+  right: 2%;
+  width: 60%;
+  height: 45%;
+  backdrop-filter: blur(2px);
+  background-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-right: 1px solid rgba(255, 255, 255, 0.3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  overflow: auto;
+  position: absolute;
+  box-sizing: border-box;
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
 
-    transition: background-color 0.3s, color 0.3s;
+  transition: background-color 0.3s, color 0.3s;
 }
 /*The bottom part of the web*/
 .Timeline {
-    flex: 2;
-    position: absolute;
-    justify-content: center;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    box-sizing: border-box;
-    bottom: 2%;
-    right: 2%;
-    width: 60%;
-    height: 35%;
-    background-color: #1f1f1f;
-    border-radius: 10px;
-    z-index: 2;
+  flex: 2;
+  position: absolute;
+  justify-content: center;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  bottom: 2%;
+  right: 2%;
+  width: 60%;
+  height: 35%;
+  background-color: #1f1f1f;
+  border-radius: 10px;
+  z-index: 2;
 }
 
 /* Feature Button */
 .button-4 {
   width: 10vw;
   appearance: none;
-  background-color: #FAFBFC;
+  background-color: #fafbfc;
   border: 1px solid rgba(27, 31, 35, 0.15);
   border-radius: 6px;
-  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0,
+    rgba(255, 255, 255, 0.25) 0 1px 0 inset;
   box-sizing: border-box;
-  color: #24292E;
+  color: #24292e;
   cursor: pointer;
   display: inline-block;
   font-size: 0.85vw;
@@ -251,20 +247,20 @@ img {
 }
 
 .button-4:hover {
-  background-color: #F3F4F6;
+  background-color: #f3f4f6;
   text-decoration: none;
   transition-duration: 0.1s;
 }
 
 .button-4:disabled {
-  background-color: #FAFBFC;
+  background-color: #fafbfc;
   border-color: rgba(27, 31, 35, 0.15);
-  color: #959DA5;
+  color: #959da5;
   cursor: default;
 }
 
 .button-4:active {
-  background-color: #EDEFF2;
+  background-color: #edeff2;
   box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
   transition: none 0s;
 }
@@ -287,11 +283,11 @@ img {
 
 ::-webkit-scrollbar-thumb {
   border-radius: 5px;
-  background: #888; 
+  background: #888;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #555; 
+  background: #555;
 }
 
 ::-webkit-scrollbar-track {
@@ -299,9 +295,9 @@ img {
   margin: 10px;
 }
 
-/* Feature Button */
-.checkbox-container{
-  position: absolute;
+/* Theme Change */
+.checkbox-container {
+  position: fixed;
   left: 1350px;
   top: 10px;
   z-index: 10;
@@ -341,7 +337,6 @@ img {
   transform: translateX(24px);
 }
 
-
 /* Dark Theme */
 body.dark {
   color: #ffffff;
@@ -361,7 +356,7 @@ body.dark .content {
   background-color: #0000009e;
 }
 
-body.dark .button-4{
+body.dark .button-4 {
   background-color: #262b39;
   color: #acb3d4;
 }
@@ -372,6 +367,6 @@ body.dark .button-4:hover {
 body.dark .checkbox-label {
   background-color: #eeeded;
 }
-body.dark .checkbox-label .ball{
+body.dark .checkbox-label .ball {
   background-color: #3438529e;
 }
