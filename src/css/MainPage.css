@@ -73,9 +73,9 @@ img {
   top: 14%;
   left: 5%;
   width: 30%;
-  height: 80%;
-  justify-content: space-between;
+  height: 83%;
   display: flex;
+  align-items: center;
   overflow: hidden;
   flex-direction: column;
   box-sizing: border-box;
