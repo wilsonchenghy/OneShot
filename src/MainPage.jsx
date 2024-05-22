@@ -5,83 +5,13 @@ import TimelineEditor from './TimelineEditor';
 import './css/MainPage.css';
 
 const MainPage = () => {
-  const [selectedOption, setSelectedOption] = useState('video');
   const [isDark, setIsDark] = useState(false);
-
-  const handleSelectChange = (event) => {
-    setSelectedOption(event.target.value);
-  };
 
   const toggleTheme = () => {
     setIsDark(!isDark);
     document.body.classList.toggle('dark');
   };
 
-  useEffect(() => {
-    const tabs = document.querySelector('.tabs');
-    if (tabs) {
-      const tabsHeader = tabs.querySelector('.tabs-header');
-      const tabsPanel = tabs.querySelectorAll('.tabs-panel');
-      let activeTab = tabsHeader.children[0];
-      let activePanel = tabsPanel[0];
-      const activeTabIndicator = document.createElement('span');
-      activeTabIndicator.className = 'active-tab-indicator';
-
-      tabs.appendChild(activeTabIndicator);
-
-      const activateTab = (tab, i) => {
-        tabsHeader.querySelectorAll('button').forEach((button) => {
-          button.removeAttribute('aria-selected');
-          button.style.color = '#555';
-        });
-
-        tab.setAttribute('aria-selected', true);
-        tab.style.color = '#0084b5';
-        activeTab = tab;
-
-        tabsPanel.forEach((panel) => {
-          panel.setAttribute('hidden', true);
-        });
-
-        tabsPanel[i].removeAttribute('hidden');
-        activePanel = tabsPanel[i];
-
-        activeTab.focus();
-
-        activeTabIndicator.style.width = activeTab.offsetWidth + 'px';
-        activeTabIndicator.style.left = activeTab.offsetLeft + 'px';
-
-        activeTabIndicator.style.paddingLeft = '10px';
-      };
-
-      activateTab(activeTab, 0);
-
-      tabs.addEventListener('keydown', (e) => {
-        const i = Array.from(tabsHeader.children).indexOf(activeTab);
-
-        if (e.keyCode === 39) {
-          if (activeTab.nextElementSibling) {
-            activateTab(activeTab.nextElementSibling, i + 1);
-          } else {
-            activateTab(tabsHeader.children[0], 0);
-          }
-        }
-
-        if (e.keyCode === 37) {
-          if (activeTab.previousElementSibling) {
-            activateTab(activeTab.previousElementSibling, i - 1);
-          } else {
-            const lastIndex = tabsHeader.children.length - 1;
-            activateTab(tabsHeader.children[lastIndex], lastIndex);
-          }
-        }
-      });
-
-      Array.from(tabsHeader.children).forEach((tab, i) => {
-        tab.addEventListener('click', () => activateTab(tab, i));
-      });
-    }
-  }, []);
 
   return (
     <div>
@@ -97,55 +27,14 @@ const MainPage = () => {
           <img src="../picture/icon.jpg" alt="OneShot 🚀💫" />
         </div>
 
-
         <div style={{ display: 'flex', alignItems: 'flex-start', gap: '20px', width: '80%' }}>
-          <div className="tabs">
-            <div className="tabs-header" role="tablist" aria-label="my-tabs">
-              <button role="tab" aria-selected="true" tabIndex="0">
-                Tab 1
-              </button>
-              <button role="tab" aria-selected="false" tabIndex="-1">
-                Tab 2
-              </button>
-              <button role="tab" aria-selected="false" tabIndex="-1">
-                Tab 3
-              </button>
-            </div>
 
-            <div className="tabs-panel" tabIndex="0" role="tabpanel">
-              <div className="panel">
-                <select className="Video-audio-Select" value={selectedOption} onChange={handleSelectChange}>
-                  <option value="video">Video</option>
-                  <option value="audio">Audio</option>
-                </select>
-                <UserTab />
-              </div>
-            </div>
-
-            <div className="tabs-panel" tabIndex="0" role="tabpanel" hidden>
-              <div className="panel">
-                <select className="Video-audio-Select" value={selectedOption} onChange={handleSelectChange}>
-                  <option value="video">Video</option>
-                  <option value="audio">Audio</option>
-                </select>
-                <UserTab />
-              </div>
-            </div>
-
-            <div className="tabs-panel" tabIndex="0" role="tabpanel" hidden>
-              <div className="panel">
-                <select className="Video-audio-Select" value={selectedOption} onChange={handleSelectChange}>
-                  <option value="video">Video</option>
-                  <option value="audio">Audio</option>
-                </select>
-                <UserTab />
-              </div>
-            </div>
+          <div>
+            <UserTab />
           </div>
 
-
           <div className="Upload">
-            <MediaPreviewer mediaType={selectedOption} />
+            <MediaPreviewer mediaType={'video'} />
           </div>
           <div className="Timeline">
             <TimelineEditor />
