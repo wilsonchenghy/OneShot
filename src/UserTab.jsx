@@ -51,9 +51,10 @@ const UserTab = () => {
 
         activeTab.focus();
 
+        const leftPercent = (activeTab.offsetLeft / tabsHeader.offsetWidth) * 100;
+        
         activeTabIndicator.style.width = activeTab.offsetWidth + 'px';
-        activeTabIndicator.style.left = activeTab.offsetLeft + 80 + 'px';
-
+        activeTabIndicator.style.left = leftPercent + 7 + '%';
       };
 
       activateTab(activeTab, 0);
