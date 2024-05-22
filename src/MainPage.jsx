@@ -2,8 +2,9 @@ import { useState, useEffect } from 'react';
 import UserTab from './UserTab';
 import MediaPreviewer from './MediaPreviewer';
 import TimelineEditor from './TimelineEditor';
-import './css/MainPage.css'
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
+import './css/MainPage.css';
 
 
 const MainPage = () => {
@@ -58,6 +59,8 @@ const MainPage = () => {
             onChange={handleCheckboxChange}
           />
           <label htmlFor="checkbox" className="checkbox-label">
+            <FontAwesomeIcon icon={faMoon} />
+            <FontAwesomeIcon icon={faSun} />
             <span className="ball"></span>
           </label>
           </div>
