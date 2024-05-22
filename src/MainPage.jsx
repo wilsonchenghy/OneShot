@@ -7,7 +7,6 @@ import './css/MainPage.css'
 
 
 const MainPage = () => {
-  const [isDark, setIsDark] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
@@ -59,8 +58,6 @@ const MainPage = () => {
             onChange={handleCheckboxChange}
           />
           <label htmlFor="checkbox" className="checkbox-label">
-            <i className="fas fa-moon"></i>
-            <i className="fas fa-sun"></i>
             <span className="ball"></span>
           </label>
           </div>
