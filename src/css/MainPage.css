@@ -10,7 +10,7 @@
   box-sizing: border-box;
 }
 
-/*The top/headline of the web*/
+/*>>>>>>>>>>>>>>>>The top/headline of the web<<<<<<<<<<<<<<<<<<*/
 .ICON {
   display: inline-block;
   margin: auto;
@@ -27,7 +27,7 @@
   z-index: 100;
   border: 2px solid rgba(255, 255, 255, 0.3);
 
-  font-size: 20px; /* Text if picture wasn't loaded*/
+  font-size: 20px; /* Text size if picture wasn't loaded*/
 
   transition: background-color 0.3s, color 0.3s;
 }
@@ -35,8 +35,59 @@
 img {
   width: auto;
   height: 100px;
+} /* Theme Change toggle checkbox*/
+.checkbox-container {
+  position: fixed;
+  left: 1350px;
+  top: 10px;
+  z-index: 100;
 }
 
+.checkbox {
+  opacity: 0;
+  position: absolute;
+}
+
+.checkbox-label {
+  background-color: #303064;
+  width: 50px;
+  height: 26px;
+  border-radius: 50px;
+  position: relative;
+  padding: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  justify-items: center;
+}
+
+.checkbox-label .ball {
+  background-color: #ffffff;
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  border-radius: 50%;
+  transition: transform 0.2s linear;
+  z-index: 10;
+}
+
+.checkbox:checked + .checkbox-label .ball {
+  transform: translateX(24px);
+}
+
+.fa-moon {
+  color: #f1c40f;
+}
+
+.fa-sun {
+  color: #f39c12;
+}
+/*>>>>>>>>>>>>>>>>Headline End<<<<<<<<<<<<<<<<<<*/
+
+/*child colours, maybe we can move them to index later*/
 .color {
   position: absolute;
   filter: blur(150px);
@@ -67,7 +118,7 @@ img {
   background: rgb(91, 91, 175);
 }
 
-/*The integrated features of the web, on the left of the web*/
+/*>>>>>>>>>>>>>>>>Panel: The integrated features of the web, on the left of the web<<<<<<<<<<<<<<<<<<*/
 .panel {
   position: absolute;
   top: 14%;
@@ -178,7 +229,9 @@ img {
 }
 /* End: Content in the panel*/
 
-/*Drop and upload area of the web*/
+/*>>>>>>>>>>>>>>>>>>>>>>>>>>End Panel<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+
+/*>>>>>>>>>>>>>>>>Upload panel: Drop and upload area of the web<<<<<<<<<<<<<<<<<<*/
 .Upload {
   top: 14%;
   right: 2%;
@@ -202,7 +255,9 @@ img {
 
   transition: background-color 0.3s, color 0.3s;
 }
-/*The bottom part of the web*/
+/*>>>>>>>>>>>>>>>>>>>>>>>>>>End Panel<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+
+/*>>>>>>>>>>>>>>>>>>>>>Timeline: The bottom part of the web<<<<<<<<<<<<<<<<<<<<<<<*/
 .Timeline {
   flex: 2;
   position: absolute;
@@ -218,6 +273,7 @@ img {
   border-radius: 10px;
   z-index: 10;
 }
+/*>>>>>>>>>>>>>>>>>>>>>>>>>>End Timeline, more code about timeline can be found at TimelinePlayerBar.css<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
 /* Feature Button */
 .button-4 {
@@ -277,6 +333,7 @@ img {
   display: none;
 }
 
+/*scrollbar appearance enchance*/
 ::-webkit-scrollbar {
   height: 5px;
   width: 5px;
@@ -296,63 +353,7 @@ img {
   margin: 10px;
 }
 
-/* Theme Change */
-.checkbox-container {
-  position: fixed;
-  left: 1350px;
-  top: 10px;
-  z-index: 100;
-}
-
-.checkbox {
-  opacity: 0;
-  position: absolute;
-}
-
-.checkbox-label {
-  background-color: #ffffff;
-  width: 50px;
-  height: 26px;
-  border-radius: 50px;
-  position: relative;
-  padding: 5px;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  justify-items: center;
-}
-
-.checkbox-label .ball {
-  background-color: #006dc7;
-  width: 22px;
-  height: 22px;
-  position: absolute;
-  left: 2px;
-  top: 2px;
-  border-radius: 50%;
-  transition: transform 0.2s linear;
-  z-index: 10;
-}
-
-.checkbox:checked + .checkbox-label .ball {
-  transform: translateX(24px);
-}
-
-.fa-moon {
-  color: #f1c40f;
-}
-
-.fa-sun {
-  color: #f39c12;
-}
-
-/* Dark Theme */
-body.dark {
-  color: #ffffff;
-  background-color: #160c22;
-}
-
+/*>>>>>>>>>>>>>>>>>>>>>>>>>>Dark theme<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 body.dark .ICON {
   background-image: linear-gradient(to bottom right, #181a27, #373e5d);
 }
