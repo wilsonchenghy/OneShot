@@ -7,8 +7,6 @@ import './css/MainPage.css'
 
 
 const MainPage = () => {
-
-  const [selectedOption, setSelectedOption] = useState('video');
   const [isDark, setIsDark] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
 
@@ -25,37 +23,34 @@ const MainPage = () => {
   };
 
 
-  const handleSelectChange = (event) => {
-    setSelectedOption(event.target.value);
-  };
-  
-
-  
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '20px'}}>
-      <div className="color"></div>
-      <div className="color"></div>
-      <div className="color"></div>
-      
-      <div className="ICON">
-        <img src="../picture/icon.jpg" alt="OneShot 🚀💫" />
-      </div>
-      <div style={{ display: 'flex', alignItems: 'flex-start', gap: '20px', width: '80%'}}>
-        <div className="panel">
-          <select className="Video-audio-Select" value={selectedOption} onChange={handleSelectChange}>
-            <option value="video">Video</option>
-            <option value="audio">Audio</option>
-          </select>
-          <UserTab />
+    <div>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+        <div className="color"></div>
+        <div className="color"></div>
+        <div className="color"></div>
+        <div className='square' style={{'--i':3}}></div>
+        <div className='square' style={{'--i':8}}></div>
+        <div className='square' style={{'--i':2}}></div>
+
+        <div className="ICON">
+          <img src="../picture/icon.jpg" alt="OneShot 🚀💫" />
         </div>
-        <div className="Upload">
-          <MediaPreviewer mediaType={selectedOption} />
-        </div>
-        <div className="Timeline">
-          <TimelineEditor />
-        </div>
-        
-        <div className='checkbox-container'>
+
+        <div style={{ display: 'flex', alignItems: 'flex-start', gap: '20px', width: '80%' }}>
+
+          <div>
+            <UserTab />
+          </div>
+
+          <div className="Upload">
+            <MediaPreviewer mediaType={'video'} />
+          </div>
+          <div className="Timeline">
+            <TimelineEditor />
+          </div>
+          
+          <div className='checkbox-container'>
           <input
             type="checkbox"
             className="checkbox"
@@ -68,10 +63,11 @@ const MainPage = () => {
             <i className="fas fa-sun"></i>
             <span className="ball"></span>
           </label>
-        </div>
+          </div>
 
+        </div>
+        <div className="top-rectangle"></div>
       </div>
-      <div className="top-rectangle"></div>
     </div>
   );
 }

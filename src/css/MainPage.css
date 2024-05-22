@@ -198,7 +198,7 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 2;
+  z-index: 6;
 
   transition: background-color 0.3s, color 0.3s;
 }
@@ -216,7 +216,7 @@ img {
   height: 35%;
   background-color: #1f1f1f;
   border-radius: 10px;
-  z-index: 2;
+  z-index: 6;
 }
 
 /* Feature Button */
@@ -367,6 +367,52 @@ body.dark .button-4:hover {
 body.dark .checkbox-label {
   background-color: #eeeded;
 }
+
 body.dark .checkbox-label .ball {
   background-color: #3438529e;
+}
+
+/* square anime effect */
+.square {
+  position: absolute;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  animation: animate 10s linear infinite;
+  animation-delay: calc(-1s * var(--i));
+}
+@keyframes animate {
+  0%,
+  100% {
+    transform: translateY(-40px);
+  }
+  50% {
+    transform: translateY(40px);
+  }
+}
+.square:nth-of-type(4) {
+  top: -10px;
+  right: 60px;
+  width: 100px;
+  height: 100px;
+}
+.square:nth-of-type(5) {
+  top: 60px;
+  left: -30px;
+  width: 120px;
+  height: 120px;
+
+  z-index: 3;
+}
+.square:nth-of-type(6) {
+  top: 400px;
+  left: 300px;
+  width: 200px;
+  height: 200px;
+
+  z-index: -1;
 }
