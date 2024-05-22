@@ -442,6 +442,8 @@ const MainPage = () => {
 
         activeTabIndicator.style.width = activeTab.offsetWidth + 'px';
         activeTabIndicator.style.left = activeTab.offsetLeft + 'px';
+
+        activeTabIndicator.style.paddingLeft = '10px';
       };
 
       activateTab(activeTab, 0);
@@ -487,6 +489,7 @@ const MainPage = () => {
           <img src="../picture/icon.jpg" alt="OneShot 🚀💫" />
         </div>
 
+
         <div style={{ display: 'flex', alignItems: 'flex-start', gap: '20px', width: '80%' }}>
           <div className="tabs">
             <div className="tabs-header" role="tablist" aria-label="my-tabs">
@@ -500,6 +503,7 @@ const MainPage = () => {
                 Tab 3
               </button>
             </div>
+
             <div className="tabs-panel" tabIndex="0" role="tabpanel">
               <div className="panel">
                 <select className="Video-audio-Select" value={selectedOption} onChange={handleSelectChange}>
@@ -509,11 +513,9 @@ const MainPage = () => {
                 <UserTab />
               </div>
             </div>
+
             <div className="tabs-panel" tabIndex="0" role="tabpanel" hidden>
               <div className="panel">
-                <p>
-                  World world world world world world world world world world world world world world world world world world world world world world world world world world world world world world world world world world world world world world world world world world world world world world world world world world world world world world world
-                </p>
                 <select className="Video-audio-Select" value={selectedOption} onChange={handleSelectChange}>
                   <option value="video">Video</option>
                   <option value="audio">Audio</option>
@@ -521,11 +523,9 @@ const MainPage = () => {
                 <UserTab />
               </div>
             </div>
+
             <div className="tabs-panel" tabIndex="0" role="tabpanel" hidden>
               <div className="panel">
-                <p>
-                  Happy happy happy happy happy happy happy happy happy happy happy happy happy happy happy happy happy happy happy happy happy happy happy happy happy happy happy happy happy happy happy happy happy happy happy happy happy happy happy happy happy happy happy happy happy happy happy happy happy happy happy happy happy happy
-                </p>
                 <select className="Video-audio-Select" value={selectedOption} onChange={handleSelectChange}>
                   <option value="video">Video</option>
                   <option value="audio">Audio</option>
@@ -534,6 +534,7 @@ const MainPage = () => {
               </div>
             </div>
           </div>
+
 
           <div className="Upload">
             <MediaPreviewer mediaType={selectedOption} />
