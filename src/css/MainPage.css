@@ -310,7 +310,7 @@ img {
 }
 
 .checkbox-label {
-  background-color: #111;
+  background-color: #ffffff;
   width: 50px;
   height: 26px;
   border-radius: 50px;
@@ -324,7 +324,7 @@ img {
 }
 
 .checkbox-label .ball {
-  background-color: #fff;
+  background-color: #006dc7;
   width: 22px;
   height: 22px;
   position: absolute;
@@ -346,6 +346,7 @@ img {
 .fa-sun {
   color: #f39c12;
 }
+
 /* Dark Theme */
 body.dark {
   color: #ffffff;
@@ -353,7 +354,7 @@ body.dark {
 }
 
 body.dark .ICON {
-  background-image: linear-gradient(to bottom right, #181a27, #1d202d);
+  background-image: linear-gradient(to bottom right, #181a27, #373e5d);
 }
 
 body.dark .panel {
@@ -375,7 +376,7 @@ body.dark .button-4:hover {
 }
 
 body.dark .checkbox-label {
-  background-color: #eeeded;
+  background-color: #000000;
 }
 
 body.dark .checkbox-label .ball {
