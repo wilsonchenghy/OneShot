@@ -10,8 +10,8 @@
   .tabs .tabs-header {
     padding: 5px 0;
     display: flex;
-    position: relative;
-    top:10%;
+    position: absolute;
+    top: 8.6%; 
     left: 7%;
     width: 90%;
   }
