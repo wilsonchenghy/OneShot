@@ -3,16 +3,12 @@ import AICommandBox from './AICommandBox';
 import StockMediaBox from './StockMediaBox';
 import './css/UserTab.css';
 
-
-
-const UserTab = () => {
-
+const UserTab = ({ isDark }) => {
   const [activeTab, setActiveTab] = useState(2);
 
   const switchTab = (tabIndex) => {
     setActiveTab(tabIndex);
   };
-
 
   const [selectedOption, setSelectedOption] = useState('video');
 
@@ -35,11 +31,11 @@ const UserTab = () => {
       const activateTab = (tab, i) => {
         tabsHeader.querySelectorAll('button').forEach((button) => {
           button.removeAttribute('aria-selected');
-          button.style.color = '#555';
+          button.style.color = isDark ? '#acb3d4' : '#555';
         });
 
         tab.setAttribute('aria-selected', true);
-        tab.style.color = '#0084b5';
+        tab.style.color = isDark ? '#fbfbfb' : '#0084b5';
         activeTab = tab;
 
         tabsPanel.forEach((panel) => {
@@ -52,9 +48,9 @@ const UserTab = () => {
         activeTab.focus();
 
         const leftPercent = (activeTab.offsetLeft / tabsHeader.offsetWidth) * 100;
-        
+
         activeTabIndicator.style.width = activeTab.offsetWidth + 'px';
-        activeTabIndicator.style.left = leftPercent + 7 + '%';
+        activeTabIndicator.style.left = leftPercent + 6 + '%';
       };
 
       activateTab(activeTab, 0);
@@ -84,13 +80,11 @@ const UserTab = () => {
         tab.addEventListener('click', () => activateTab(tab, i));
       });
     }
-  }, []);
+  }, [isDark]);
 
   return (
-
     <div>
-
-      <div className="tabs">
+      <div className={`tabs ${isDark ? 'dark' : ''}`}>
         <div className="tabs-header" role="tablist" aria-label="my-tabs">
           <button role="tab" aria-selected="true" tabIndex="0">
             Tab 1
@@ -99,14 +93,12 @@ const UserTab = () => {
             Tab 2
           </button>
         </div>
-
         <div className="tabs-panel" tabIndex="0" role="tabpanel">
           <div className="panel">
             <select className="Video-audio-Select" value={selectedOption} onChange={handleSelectChange}>
               <option value="video">Video</option>
               <option value="audio">Audio</option>
             </select>
-            
             <div>
               <div className="selection-result-bar">
                 {activeTab === 1 && <AICommandBox />}
@@ -114,40 +106,34 @@ const UserTab = () => {
               </div>
               <br />
               <div className="feature-select">
-                <button className="button-4" onClick={() => switchTab(1)}>AICommandBox</button>
-                <button className="button-4" onClick={() => switchTab(2)}>StockMediaBox</button>
+                <button className={`button-4 ${isDark ? 'dark' : ''}`} onClick={() => switchTab(1)}>AICommandBox</button>
+                <button className={`button-4 ${isDark ? 'dark' : ''}`} onClick={() => switchTab(2)}>StockMediaBox</button>
               </div>
             </div>
           </div>
         </div>
-
         <div className="tabs-panel" tabIndex="-1" role="tabpanel">
           <div className="panel">
             <select className="Video-audio-Select" value={selectedOption} onChange={handleSelectChange}>
               <option value="video">Video</option>
               <option value="audio">Audio</option>
             </select>
-            
             <div>
               <div className="selection-result-bar">
                 {activeTab === 1 && <AICommandBox />}
-                {activeTab === 2 && <StockMediaBox />}
+                {activeTab === 2 && <StockMediaBox isDark={isDark}/>}
               </div>
               <br />
               <div className="feature-select">
-                <button className="button-4" onClick={() => switchTab(1)}>AICommandBox</button>
-                <button className="button-4" onClick={() => switchTab(2)}>StockMediaBox</button>
+                <button className={`button-4 ${isDark ? 'dark' : ''}`} onClick={() => switchTab(1)}>AICommandBox</button>
+                <button className={`button-4 ${isDark ? 'dark' : ''}`} onClick={() => switchTab(2)}>StockMediaBox</button>
               </div>
             </div>
           </div>
         </div>
-
       </div>
-
     </div>
   );
 }
-
-
 
 export default UserTab;

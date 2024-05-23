@@ -73,7 +73,8 @@ img {
   overflow: hidden;
   flex-direction: column;
   box-sizing: border-box;
-  border-radius: 30px;
+  /* border-radius: 30px; */
+  border-radius: 10px 10px 35px 35px;
   backdrop-filter: blur(2px);
   background-color: rgba(255, 255, 255, 0.2);
   box-shadow: 0 25px 45px rgba(0, 0, 0, 0.5);
@@ -320,7 +321,6 @@ body.dark {
     background-color: #160c22;
 }
 
-
 body.dark .ICON {
     background-image: linear-gradient(to bottom right, #181a27, #1d202d);
 }
@@ -339,12 +339,12 @@ body.dark .button {
     color: #fff;
 }
 
-body.dark button-4{
+body.dark .button-4{
     background-color: #262b39;
     color: #acb3d4;
 }
 
-body.dark button-4:hover {
+body.dark .button-4:hover {
     box-shadow: #ffffff 0 0 0 1px, transparent 0 0 0 0;
   }
 
