@@ -1,17 +1,22 @@
 @import url(https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;1,400&display=swap);
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 
 * {
-    font-family: 'Poppins', sans-serif !important;
-    font-weight: 300;
+  font-family: "Poppins", sans-serif !important;
+  font-weight: 300;
 }
 
-/*The top/headline of the web*/
-.ICON{
+* {
+  box-sizing: border-box;
+}
+
+/*>>>>>>>>>>>>>>>>The top/headline of the web<<<<<<<<<<<<<<<<<<*/
+.ICON {
   display: inline-block;
   margin: auto;
   gap: 10px;
   display: flex;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -19,10 +24,10 @@
   background-image: linear-gradient(to bottom right, #a6e2f9, #6bdfec);
   text-align: left;
   align-items: center;
-  z-index: 9;
+  z-index: 100;
   border: 2px solid rgba(255, 255, 255, 0.3);
 
-  font-size: 20px;  /* Text if picture wasn't loaded*/
+  font-size: 20px; /* Text size if picture wasn't loaded*/
 
   transition: background-color 0.3s, color 0.3s;
 }
@@ -30,14 +35,66 @@
 img {
   width: auto;
   height: 100px;
+} /* Theme Change toggle checkbox*/
+.checkbox-container {
+  position: fixed;
+  left: 1350px;
+  top: 10px;
+  z-index: 100;
 }
 
+.checkbox {
+  opacity: 0;
+  position: absolute;
+}
+
+.checkbox-label {
+  background-color: #303064;
+  width: 50px;
+  height: 26px;
+  border-radius: 50px;
+  position: relative;
+  padding: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  justify-items: center;
+}
+
+.checkbox-label .ball {
+  background-color: #ffffff;
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  border-radius: 50%;
+  transition: transform 0.2s linear;
+  z-index: 10;
+}
+
+.checkbox:checked + .checkbox-label .ball {
+  transform: translateX(24px);
+}
+
+.fa-moon {
+  color: #f1c40f;
+}
+
+.fa-sun {
+  color: #f39c12;
+}
+/*>>>>>>>>>>>>>>>>Headline End<<<<<<<<<<<<<<<<<<*/
+
+/*child colours, maybe we can move them to index later*/
 .color {
   position: absolute;
-  filter:blur(150px)
+  filter: blur(150px);
+  will-change: transform;
 }
 
-.color:nth-child(1){
+.color:nth-child(1) {
   top: -10%;
   left: 0%;
   width: 50%;
@@ -45,7 +102,7 @@ img {
   background: rgb(72, 212, 220);
 }
 
-.color:nth-child(2){
+.color:nth-child(2) {
   bottom: -10%;
   left: 40%;
   width: 55%;
@@ -53,7 +110,7 @@ img {
   background: rgb(8, 140, 145);
 }
 
-.color:nth-child(3){
+.color:nth-child(3) {
   top: 25%;
   right: 15%;
   width: 35%;
@@ -61,15 +118,15 @@ img {
   background: rgb(91, 91, 175);
 }
 
-/*The integrated features of the web, on the left of the web*/
+/*>>>>>>>>>>>>>>>>Panel: The integrated features of the web, on the left of the web<<<<<<<<<<<<<<<<<<*/
 .panel {
   position: absolute;
   top: 14%;
   left: 5%;
   width: 30%;
-  height: 70%;
-  justify-content: space-between;
+  height: 83%;
   display: flex;
+  align-items: center;
   overflow: hidden;
   flex-direction: column;
   box-sizing: border-box;
@@ -79,10 +136,10 @@ img {
   background-color: rgba(255, 255, 255, 0.2);
   box-shadow: 0 25px 45px rgba(0, 0, 0, 0.5);
   border: 2px solid rgba(255, 255, 255, 0.495);
-  border-right: 1px solid rgba(255,255,255,0.3);
-  border-bottom: 1px solid rgba(255,255,255,0.3);
+  border-right: 1px solid rgba(255, 255, 255, 0.3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   padding: 10px;
-  z-index: 2;
+  z-index: 10;
 
   transition: background-color 0.3s, color 0.3s;
 }
@@ -99,7 +156,9 @@ img {
 }
 
 .commentbox {
-  height: 55vh;
+  position: relative;
+  right: 10px;
+  height: 60vh;
   width: 25vh;
   overflow-y: scroll;
   border: 1px solid #a2a1a1;
@@ -127,7 +186,7 @@ img {
 .imageGrid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  height: 49%;
+  height: 55%;
   overflow: scroll;
   gap: 5px;
   align-items: center;
@@ -140,7 +199,7 @@ img {
   display: grid;
   margin: 55px;
   grid-template-columns: repeat(2, 10vw);
-  height: 25%;
+  height: 30%;
   overflow: scroll;
   gap: 5px;
   align-items: center;
@@ -171,100 +230,63 @@ img {
 }
 /* End: Content in the panel*/
 
-/*Drop and upload area of the web*/
+/*>>>>>>>>>>>>>>>>>>>>>>>>>>End Panel<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+
+/*>>>>>>>>>>>>>>>>Upload panel: Drop and upload area of the web<<<<<<<<<<<<<<<<<<*/
 .Upload {
-    top: 14%;
-    right: 2%;
-    width: 60%;
-    height: 45%;
-    backdrop-filter: blur(2px);
-    background-color: rgba(255, 255, 255, 0.4);
-    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.5);
-    border: 1px solid rgba(255,255,255,0.5);
-    border-right: 1px solid rgba(255,255,255,0.3);
-    border-bottom: 1px solid rgba(255,255,255,0.3);
-    border-radius: 20px;
-    overflow: auto;
-    position: absolute;
-    box-sizing: border-box;
-    flex: 2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 6;
-
-    transition: background-color 0.3s, color 0.3s;
-}
-
-
-/*The bottom part of the web*/
-.Timeline {
-    flex: 2;
-    position: fixed;
-    justify-content: center;
-    overflow-y: scroll;
-    box-sizing: border-box;
-    bottom: 2%;
-    right: 2%;
-    width: 59%;
-    height: 35%;
-    background-color: #1f1f1f;
-    border-radius: 10px;
-    padding: 10px;
-    z-index: 6;
-}
-
-/* Theme Button */
-.button {
+  top: 14%;
+  right: 2%;
+  width: 60%;
+  height: 45%;
+  backdrop-filter: blur(2px);
+  background-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-right: 1px solid rgba(255, 255, 255, 0.3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  overflow: auto;
   position: absolute;
-  left: 5%;
-  bottom: 5%;
-  width: 30%;
-
-  align-items: center;
-  background-color: #fff;
-  border-radius: 12px;
-  box-shadow: transparent 0 0 0 5px,rgba(18, 18, 18, .1) 0 6px 20px;
   box-sizing: border-box;
-  color: #0b0720;
-  cursor: pointer;
-  display: inline-flex;
-  flex: 1 1 auto;
-  font-size: 1.2rem;
+  flex: 2;
+  display: flex;
   justify-content: center;
-  line-height: 1;
-  margin: 0;
-  outline: none;
-  padding: 1rem 1.2rem;
-  text-align: center;
-  text-decoration: none;
-  transition: box-shadow .2s,-webkit-box-shadow .2s;
-  white-space: nowrap;
-  border: 0;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
+  align-items: center;
+  z-index: 10;
 
   transition: background-color 0.3s, color 0.3s;
-  z-index: 5;
 }
+/*>>>>>>>>>>>>>>>>>>>>>>>>>>End Panel<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
-.button:hover {
-  box-shadow: #121212 0 0 0 1.5px, transparent 0 0 0 0;
+/*>>>>>>>>>>>>>>>>>>>>>Timeline: The bottom part of the web<<<<<<<<<<<<<<<<<<<<<<<*/
+.Timeline {
+  flex: 2;
+  position: absolute;
+  justify-content: center;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  bottom: 2%;
+  right: 2%;
+  width: 60%;
+  height: 35%;
+  background-color: #1f1f1f;
+  border-radius: 10px;
+  z-index: 10;
 }
-
-
+/*>>>>>>>>>>>>>>>>>>>>>>>>>>End Timeline, more code about timeline can be found at TimelinePlayerBar.css<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
 /* Feature Button */
 .button-4 {
   width: 10vw;
   appearance: none;
-  background-color: #FAFBFC;
+  background-color: #fafbfc;
   border: 1px solid rgba(27, 31, 35, 0.15);
   border-radius: 6px;
-  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0,
+    rgba(255, 255, 255, 0.25) 0 1px 0 inset;
   box-sizing: border-box;
-  color: #24292E;
+  color: #24292e;
   cursor: pointer;
   display: inline-block;
   font-size: 0.85vw;
@@ -281,22 +303,21 @@ img {
   word-wrap: break-word;
 }
 
-
 .button-4:hover {
-  background-color: #F3F4F6;
+  background-color: #f3f4f6;
   text-decoration: none;
   transition-duration: 0.1s;
 }
 
 .button-4:disabled {
-  background-color: #FAFBFC;
+  background-color: #fafbfc;
   border-color: rgba(27, 31, 35, 0.15);
-  color: #959DA5;
+  color: #959da5;
   cursor: default;
 }
 
 .button-4:active {
-  background-color: #EDEFF2;
+  background-color: #edeff2;
   box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
   transition: none 0s;
 }
@@ -313,30 +334,39 @@ img {
   display: none;
 }
 
-
-
-/* Dark Theme */
-body.dark {
-    color: #ffffff;
-    background-color: #160c22;
+/*scrollbar appearance enchance*/
+::-webkit-scrollbar {
+  height: 5px;
+  width: 5px;
 }
 
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px; /* Match the border radius of the container */
+  margin: 10px;
+}
+
+/*>>>>>>>>>>>>>>>>>>>>>>>>>>Dark theme<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+
 body.dark .ICON {
-    background-image: linear-gradient(to bottom right, #181a27, #1d202d);
+  background-image: linear-gradient(to bottom right, #181a27, #373e5d);
 }
 
 body.dark .panel {
-    background-color: #0000009e;
+  background-color: #0000009e;
 }
 
 body.dark .content {
-    border: 1px solid #181717;
-    background-color: #0000009e;
-}
-
-body.dark .button {
-    background-color: #0000009e;
-    color: #fff;
+  border: 1px solid #181717;
+  background-color: #0000009e;
 }
 
 body.dark .button-4{
@@ -349,34 +379,32 @@ body.dark .button-4:hover {
   }
 
 body.dark .checkbox-label {
-    background-color: #eeeded;
+  background-color: #000000;
 }
 
-body.dark .checkbox-label .ball{
-    background-color: #3438529e;
+body.dark .checkbox-label .ball {
+  background-color: rgb(52, 51, 75);
 }
-
-
-
 
 /* square anime effect */
 .square {
   position: absolute;
   backdrop-filter: blur(5px);
-  box-shadow: 0 25px 45px rgba(0,0,0,0.1);
-  border: 1px solid rgba(255,255,255,0.3);
-  border-right: 1px solid rgba(255,255,255,0.1);
-  border-bottom: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   background: rgba(255, 255, 255, 0.05);
   border-radius: 20px;
   animation: animate 10s linear infinite;
   animation-delay: calc(-1s * var(--i));
 }
-@keyframes animate{
-  0%,100%{
+@keyframes animate {
+  0%,
+  100% {
     transform: translateY(-40px);
   }
-  50%{
+  50% {
     transform: translateY(40px);
   }
 }
@@ -392,7 +420,7 @@ body.dark .checkbox-label .ball{
   width: 120px;
   height: 120px;
 
-  z-index: 3;
+  z-index: 5;
 }
 .square:nth-of-type(6) {
   top: 400px;
@@ -400,5 +428,5 @@ body.dark .checkbox-label .ball{
   width: 200px;
   height: 200px;
 
-  z-index: -1;
+  z-index: 5;
 }

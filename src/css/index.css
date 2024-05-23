@@ -1,6 +1,12 @@
 /* global styles */
 
 body {
+  overflow: hidden;
   background-color: #ffffff;
   transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark {
+  color: #ffffff;
+  background-color: #160c22;
 }

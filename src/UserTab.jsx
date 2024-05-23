@@ -3,13 +3,8 @@ import AICommandBox from './AICommandBox';
 import StockMediaBox from './StockMediaBox';
 import './css/UserTab.css';
 
-const UserTab = ({ isDark }) => {
-  const [activeTab, setActiveTab] = useState(2);
-
-  const switchTab = (tabIndex) => {
-    setActiveTab(tabIndex);
-  };
-
+const UserTab = () => {
+  
   const [selectedOption, setSelectedOption] = useState('video');
 
   const handleSelectChange = (event) => {
@@ -87,48 +82,35 @@ const UserTab = ({ isDark }) => {
       <div className={`tabs ${isDark ? 'dark' : ''}`}>
         <div className="tabs-header" role="tablist" aria-label="my-tabs">
           <button role="tab" aria-selected="true" tabIndex="0">
-            Tab 1
+            StockMediaBox
           </button>
           <button role="tab" aria-selected="false" tabIndex="-1">
-            Tab 2
+            AICommandBox
           </button>
         </div>
         <div className="tabs-panel" tabIndex="0" role="tabpanel">
           <div className="panel">
+
             <select className="Video-audio-Select" value={selectedOption} onChange={handleSelectChange}>
               <option value="video">Video</option>
               <option value="audio">Audio</option>
             </select>
-            <div>
-              <div className="selection-result-bar">
-                {activeTab === 1 && <AICommandBox />}
-                {activeTab === 2 && <StockMediaBox />}
-              </div>
-              <br />
-              <div className="feature-select">
-                <button className={`button-4 ${isDark ? 'dark' : ''}`} onClick={() => switchTab(1)}>AICommandBox</button>
-                <button className={`button-4 ${isDark ? 'dark' : ''}`} onClick={() => switchTab(2)}>StockMediaBox</button>
-              </div>
-            </div>
+
+            <StockMediaBox />
+
           </div>
         </div>
+        
         <div className="tabs-panel" tabIndex="-1" role="tabpanel">
           <div className="panel">
+
             <select className="Video-audio-Select" value={selectedOption} onChange={handleSelectChange}>
               <option value="video">Video</option>
               <option value="audio">Audio</option>
             </select>
-            <div>
-              <div className="selection-result-bar">
-                {activeTab === 1 && <AICommandBox />}
-                {activeTab === 2 && <StockMediaBox isDark={isDark}/>}
-              </div>
-              <br />
-              <div className="feature-select">
-                <button className={`button-4 ${isDark ? 'dark' : ''}`} onClick={() => switchTab(1)}>AICommandBox</button>
-                <button className={`button-4 ${isDark ? 'dark' : ''}`} onClick={() => switchTab(2)}>StockMediaBox</button>
-              </div>
-            </div>
+
+            <AICommandBox />
+
           </div>
         </div>
       </div>

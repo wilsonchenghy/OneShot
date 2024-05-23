@@ -1,15 +1,25 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import UserTab from './UserTab';
 import MediaPreviewer from './MediaPreviewer';
 import TimelineEditor from './TimelineEditor';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
 import './css/MainPage.css';
 
-const MainPage = () => {
-  const [isDark, setIsDark] = useState(false);
 
-  const toggleTheme = () => {
-    setIsDark(!isDark);
-    document.body.classList.toggle('dark');
+const MainPage = () => {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  useEffect(() => {
+    if (isDarkMode) {
+      document.body.classList.add('dark');
+    } else {
+      document.body.classList.remove('dark');
+    }
+  }, [isDarkMode]);
+
+  const handleCheckboxChange = () => {
+    setIsDarkMode(!isDarkMode);
   };
 
 
@@ -39,7 +49,22 @@ const MainPage = () => {
           <div className="Timeline">
             <TimelineEditor />
           </div>
-          <button className="button" id="button" role="button" onClick={toggleTheme}>Light/Dark</button>
+          
+          <div className='checkbox-container'>
+          <input
+            type="checkbox"
+            className="checkbox"
+            id="checkbox"
+            checked={isDarkMode}
+            onChange={handleCheckboxChange}
+          />
+          <label htmlFor="checkbox" className="checkbox-label">
+            <FontAwesomeIcon icon={faMoon} />
+            <FontAwesomeIcon icon={faSun} />
+            <span className="ball"></span>
+          </label>
+          </div>
+
         </div>
         <div className="top-rectangle"></div>
       </div>
@@ -47,4 +72,6 @@ const MainPage = () => {
   );
 }
 
-export default MainPage;
+
+
+export default MainPage
