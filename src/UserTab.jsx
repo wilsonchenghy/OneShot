@@ -3,8 +3,10 @@ import AICommandBox from './AICommandBox';
 import StockMediaBox from './StockMediaBox';
 import './css/UserTab.css';
 
+
+
 const UserTab = () => {
-  
+
   const [selectedOption, setSelectedOption] = useState('video');
 
   const handleSelectChange = (event) => {
@@ -26,11 +28,11 @@ const UserTab = () => {
       const activateTab = (tab, i) => {
         tabsHeader.querySelectorAll('button').forEach((button) => {
           button.removeAttribute('aria-selected');
-          button.style.color = isDark ? '#acb3d4' : '#555';
+          button.style.color = '#555';
         });
 
         tab.setAttribute('aria-selected', true);
-        tab.style.color = isDark ? '#fbfbfb' : '#0084b5';
+        tab.style.color = '#0084b5';
         activeTab = tab;
 
         tabsPanel.forEach((panel) => {
@@ -43,9 +45,9 @@ const UserTab = () => {
         activeTab.focus();
 
         const leftPercent = (activeTab.offsetLeft / tabsHeader.offsetWidth) * 100;
-
+        
         activeTabIndicator.style.width = activeTab.offsetWidth + 'px';
-        activeTabIndicator.style.left = leftPercent + 6 + '%';
+        activeTabIndicator.style.left = leftPercent + 7 + '%';
       };
 
       activateTab(activeTab, 0);
@@ -75,11 +77,13 @@ const UserTab = () => {
         tab.addEventListener('click', () => activateTab(tab, i));
       });
     }
-  }, [isDark]);
+  }, []);
 
   return (
+
     <div>
-      <div className={`tabs ${isDark ? 'dark' : ''}`}>
+
+      <div className="tabs">
         <div className="tabs-header" role="tablist" aria-label="my-tabs">
           <button role="tab" aria-selected="true" tabIndex="0">
             StockMediaBox
@@ -88,6 +92,7 @@ const UserTab = () => {
             AICommandBox
           </button>
         </div>
+
         <div className="tabs-panel" tabIndex="0" role="tabpanel">
           <div className="panel">
 
@@ -113,9 +118,13 @@ const UserTab = () => {
 
           </div>
         </div>
+
       </div>
+
     </div>
   );
 }
+
+
 
 export default UserTab;
