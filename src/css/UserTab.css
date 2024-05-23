@@ -73,7 +73,7 @@ body.dark .tabs .tabs-header button {
 }
 
 body.dark .tabs .tabs-header button[aria-selected="true"] {
-  color: #fbfbfb;
+  color: #acb3d4;
 }
 
 body.dark .tabs .active-tab-indicator{
