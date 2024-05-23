@@ -10,8 +10,8 @@
   .tabs .tabs-header {
     padding: 5px 0;
     display: flex;
-    position: relative;
-    top:10%;
+    position: absolute;
+    top: 8.6%; 
     left: 7%;
     width: 90%;
   }
@@ -52,3 +52,26 @@
     transition: left 0.3s ease;
     z-index: 5;
   }
+
+  /* Dark Theme */
+body.dark {
+  color: #ffffff;
+  background-color: #160c22;
+}
+
+body.dark .tabs-header {
+  color: #ffffff;
+}
+
+body.dark .tabs .tabs-header button {
+  color: #555;
+
+}
+
+body.dark .tabs .tabs-header button[aria-selected="true"] {
+  color: #acb3d4;
+}
+
+body.dark .tabs .active-tab-indicator{
+  background: #ffffff;
+}
