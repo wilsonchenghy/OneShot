@@ -5,34 +5,28 @@ import './css/StockMediaBox.css';
 import { useDispatch } from 'react-redux';
 import { previewMediaAction, setPreviewerLoadingAction } from './redux/actions.js';
 
-const StockMediaBox = () => {
-    
-    
+const StockMediaBox = ({ isDark }) => {
     const [imageQuery, setImageQuery] = useState('');
     const [videoQuery, setVideoQuery] = useState('');
     const [images, setImages] = useState([]);
     const [videos, setVideos] = useState([]);
     const [visibleGrid, setVisibleGrid] = useState('none');
-    // PEXELS API Key
     const apiKey = import.meta.env.VITE_PEXELS_API_KEY;
 
     const handleButtonClick = () => {
         setVisibleGrid('imageGrid');
         fetchImages();
     };
+
     const handleButtonClick2 = () => {
         setVisibleGrid('videoGrid');
         fetchVideos();
     };
 
-
-    // Fetching Stock images
     const fetchImages = async () => {
         try {
             const response = await axios.get(`https://api.pexels.com/v1/search?query=${imageQuery}&per_page=10`, {
-                headers: {
-                    Authorization: apiKey,
-                },
+                headers: { Authorization: apiKey },
             });
             setImages(response.data.photos);
         } catch (error) {
@@ -40,13 +34,10 @@ const StockMediaBox = () => {
         }
     };
 
-    // Fetching stock videos
     const fetchVideos = async () => {
         try {
             const response = await axios.get(`https://api.pexels.com/videos/search?query=${videoQuery}&per_page=10`, {
-                headers: {
-                    Authorization: apiKey,
-                },
+                headers: { Authorization: apiKey },
             });
             setVideos(response.data.videos);
         } catch (error) {
@@ -54,11 +45,8 @@ const StockMediaBox = () => {
         }
     };
 
-
-
     const dispatch = useDispatch();
 
-    // Feature of double clicking on a video to add it to the previewer
     const addImageToPreviewer = (imagePath) => {
         dispatch(setPreviewerLoadingAction(true));
         
@@ -76,32 +64,55 @@ const StockMediaBox = () => {
         });
     };
 
-    // Feature of double clicking on a video to add it to the previewer
     const addVideoToPreviewer = (e, mediaUrl) => {
-        e.preventDefault();  // !!!!!!!!!!!!!! seems to not be working, CANNOT disable double clicking make videos full screen behaviour
+        e.preventDefault();
         dispatch(previewMediaAction(mediaUrl));
-    }
-
-
+    };
 
     return (
         <div>
             <div className="MediaBox">
                 <div className="input-container">
-                    <input className="inputbox" type="text" value={imageQuery} onChange={(e) => setImageQuery(e.target.value)} />
-                    <button className="button-4 search" onClick={handleButtonClick}>Search Images</button>
+                    <input
+                        className={`inputbox ${isDark ? 'dark' : ''}`}
+                        type="text"
+                        value={imageQuery}
+                        onChange={(e) => setImageQuery(e.target.value)}
+                    />
+                    <button
+                        className={`button-4 search ${isDark ? 'dark' : ''}`}
+                        onClick={handleButtonClick}
+                    >
+                        Search Images
+                    </button>
                 </div>
                 <br />
                 <div className="input-container">
-                    <input className="inputbox" type="text" value={videoQuery} onChange={(e) => setVideoQuery(e.target.value)} />
-                    <button className="button-4 search" onClick={handleButtonClick2}>Search Videos</button>
+                    <input
+                        className={`inputbox ${isDark ? 'dark' : ''}`}
+                        type="text"
+                        value={videoQuery}
+                        onChange={(e) => setVideoQuery(e.target.value)}
+                    />
+                    <button
+                        className={`button-4 search ${isDark ? 'dark' : ''}`}
+                        onClick={handleButtonClick2}
+                    >
+                        Search Videos
+                    </button>
                 </div>
                 <br />
             </div>
 
             <div className={visibleGrid === 'imageGrid' ? 'imageGrid' : 'hidden'}>
                 {images.map((image) => (
-                    <img key={image.id} src={image.src.medium} alt={image.photographer} className='stockImages' onDoubleClick={() => addImageToPreviewer(image.src.medium)} />
+                    <img
+                        key={image.id}
+                        src={image.src.medium}
+                        alt={image.photographer}
+                        className='stockImages'
+                        onDoubleClick={() => addImageToPreviewer(image.src.medium)}
+                    />
                 ))}
             </div>
             <br />
@@ -121,3 +132,4 @@ const StockMediaBox = () => {
 };
 
 export default StockMediaBox;
+
