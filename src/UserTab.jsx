@@ -5,7 +5,12 @@ import './css/UserTab.css';
 
 
 
-const UserTab = () => {
+const UserTab = ({ isDark }) => {
+  const [activeTab, setActiveTab] = useState(2);
+
+  const switchTab = (tabIndex) => {
+    setActiveTab(tabIndex);
+  };
 
   const [selectedOption, setSelectedOption] = useState('video');
 
@@ -28,11 +33,11 @@ const UserTab = () => {
       const activateTab = (tab, i) => {
         tabsHeader.querySelectorAll('button').forEach((button) => {
           button.removeAttribute('aria-selected');
-          button.style.color = '#555';
+          button.style.color = isDark ? '#acb3d4' : '#555';
         });
 
         tab.setAttribute('aria-selected', true);
-        tab.style.color = '#0084b5';
+        tab.style.color = isDark ? '#fbfbfb' : '#0084b5';
         activeTab = tab;
 
         tabsPanel.forEach((panel) => {
@@ -77,13 +82,12 @@ const UserTab = () => {
         tab.addEventListener('click', () => activateTab(tab, i));
       });
     }
-  }, []);
+  }, [isDark]);
 
   return (
 
     <div>
-
-      <div className="tabs">
+      <div className={`tabs ${isDark ? 'dark' : ''}`}>
         <div className="tabs-header" role="tablist" aria-label="my-tabs">
           <button role="tab" aria-selected="true" tabIndex="0">
             StockMediaBox
@@ -95,13 +99,12 @@ const UserTab = () => {
 
         <div className="tabs-panel" tabIndex="0" role="tabpanel">
           <div className="panel">
-
             <select className="Video-audio-Select" value={selectedOption} onChange={handleSelectChange}>
               <option value="video">Video</option>
               <option value="audio">Audio</option>
             </select>
 
-            <StockMediaBox />
+            <StockMediaBox isDark={isDark}/>
 
           </div>
         </div>

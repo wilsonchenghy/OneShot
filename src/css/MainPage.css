@@ -36,9 +36,10 @@ img {
   width: auto;
   height: 100px;
 } /* Theme Change toggle checkbox*/
+
 .checkbox-container {
-  position: fixed;
-  left: 1350px;
+  position: absolute;
+  left: 90%;
   top: 10px;
   z-index: 100;
 }
