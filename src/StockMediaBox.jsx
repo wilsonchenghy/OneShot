@@ -62,7 +62,7 @@ const StockMediaBox = () => {
     const addImageToPreviewer = (imagePath) => {
         dispatch(setPreviewerLoadingAction(true));
         
-        axios.post('http://127.0.0.1:5000/generate_video', {
+        axios.post('http://127.0.0.1:5001/generate_video', {
             imagePath: imagePath,
             duration: 5
         })
