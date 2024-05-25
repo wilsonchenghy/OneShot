@@ -12,12 +12,6 @@ const UserTab = ({ isDark }) => {
     setActiveTab(tabIndex);
   };
 
-  const [selectedOption, setSelectedOption] = useState('video');
-
-  const handleSelectChange = (event) => {
-    setSelectedOption(event.target.value);
-  };
-
   useEffect(() => {
     const tabs = document.querySelector('.tabs');
     if (tabs) {
@@ -99,26 +93,13 @@ const UserTab = ({ isDark }) => {
 
         <div className="tabs-panel" tabIndex="0" role="tabpanel">
           <div className="panel">
-            <select className="Video-audio-Select" value={selectedOption} onChange={handleSelectChange}>
-              <option value="video">Video</option>
-              <option value="audio">Audio</option>
-            </select>
-
-            <StockMediaBox isDark={isDark}/>
-
+            <StockMediaBox isDark={isDark}/>  {/* ISSUE !!!! dark theme can be implemented without putting isDark as an argument? */}
           </div>
         </div>
         
         <div className="tabs-panel" tabIndex="-1" role="tabpanel">
           <div className="panel">
-
-            <select className="Video-audio-Select" value={selectedOption} onChange={handleSelectChange}>
-              <option value="video">Video</option>
-              <option value="audio">Audio</option>
-            </select>
-
             <AICommandBox />
-
           </div>
         </div>
 

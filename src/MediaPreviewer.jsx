@@ -9,13 +9,14 @@ import { previewMediaAction } from './redux/actions';
 
 
 
-const MediaPreviewer = ({mediaType, timelineData, timelineAddAction}) => {
+const MediaPreviewer = ({timelineData, timelineAddAction}) => {
 
     const mediaUrl = useSelector(state => state.mediaPreview.mediaUrl);
     const isLoading = useSelector(state => state.mediaPreview.isLoading);
 
     // useState
     const [durationTimelineData, setDurationTimelineData] = useState(null);
+    const [mediaType, setMediaType] = useState(null);
 
 
     // For handling video/audio dropbox
@@ -24,10 +25,12 @@ const MediaPreviewer = ({mediaType, timelineData, timelineAddAction}) => {
     const onDrop = (acceptedFiles) => {
         const file = acceptedFiles[0];
         const url = URL.createObjectURL(file);
+        const fileType = file.type.startsWith('video') ? 'video' : 'audio';
+        setMediaType(fileType); 
         dispatch(previewMediaAction(url));
     };
 
-    const acceptType = (mediaType == 'video' ? 'video/*' : 'audio/*');
+    const acceptType = 'video/*, audio/*';
     const { getRootProps, getInputProps } = useDropzone({ onDrop, accept: acceptType });
 
 
@@ -72,14 +75,20 @@ const MediaPreviewer = ({mediaType, timelineData, timelineAddAction}) => {
                 ) : (
                     <div>
                         <input {...getInputProps()} />
-                        <p>Drag & drop a {mediaType == 'video' ? 'video' : 'audio'} file here, or click to select one</p>
+                        <p>Drag & drop a video or audio file here, or click to select one</p>
                     </div>
                 )}
             </div>
             {mediaUrl && (
-                (mediaType == 'video' ? <ReactPlayer url={mediaUrl} controls={true} width="100%" height="auto" onDuration={getDuration}/> : <ReactPlayer url={mediaUrl} controls={true} width="100%" height="50px" onDuration={getDuration}/>)
-            )}            
-            <div id="player-ground-1"></div>  {/* Temporary */}
+                <ReactPlayer
+                    url={mediaUrl}
+                    controls={true}
+                    width="100%"
+                    height={mediaType === 'video' ? 'auto' : '50px'}
+                    onDuration={getDuration}
+                />
+            )}          
+            {/* <div id="player-ground-1"></div> */}  {/* Temporary */}
         </div>
     )
 }
