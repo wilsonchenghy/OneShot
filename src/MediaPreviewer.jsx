@@ -16,6 +16,7 @@ const MediaPreviewer = ({timelineData, timelineAddAction}) => {
 
     // useState
     const [durationTimelineData, setDurationTimelineData] = useState(null);
+    const [mediaSrc, setMediaSrc] = useState(null);
     const [mediaType, setMediaType] = useState(null);
 
 
@@ -25,6 +26,7 @@ const MediaPreviewer = ({timelineData, timelineAddAction}) => {
     const onDrop = (acceptedFiles) => {
         const file = acceptedFiles[0];
         const url = URL.createObjectURL(file);
+        setMediaSrc(url);
         const fileType = file.type.startsWith('video') ? 'video' : 'audio';
         setMediaType(fileType); 
         dispatch(previewMediaAction(url));
@@ -42,7 +44,7 @@ const MediaPreviewer = ({timelineData, timelineAddAction}) => {
 
 
     // Add video/audio data to the timelineEditor (use useEffect to automatically add the data once any video/audio is added to the previewer)
-    const handleTimelineAddData = () => {
+    const handleTimelineAddData = (mediaSrc, mediaType) => {
         const id = timelineData.length.toString()
 
         const newTimelineData = {
@@ -52,7 +54,11 @@ const MediaPreviewer = ({timelineData, timelineAddAction}) => {
                     id: id,
                     start: 0,
                     end: durationTimelineData,
-                    effectId: id,
+                    effectId: mediaType === 'video' ? id : 'audioEffect',
+                    data: {
+                        src: mediaSrc,
+                        name: mediaType === 'video' ? 'Video' + id : 'backgroundAudio' + id, 
+                    },
                 }
             ],
         };
@@ -61,7 +67,7 @@ const MediaPreviewer = ({timelineData, timelineAddAction}) => {
 
     useEffect(() => {
         if (durationTimelineData != null) {
-            handleTimelineAddData();
+            handleTimelineAddData(mediaSrc, mediaType);
         }
     }, [durationTimelineData]);
 
@@ -69,7 +75,7 @@ const MediaPreviewer = ({timelineData, timelineAddAction}) => {
 
     return (
         <div>
-            <div {...getRootProps()} style={{ border: '1px dashed #ccc', padding: '20px', textAlign: 'center' }}>
+            <div {...getRootProps()} style={{ border: '2px dashed #ccc', padding: '22px', textAlign: 'center' }}>
                 {isLoading ? (
                     <p>loading ... </p>
                 ) : (

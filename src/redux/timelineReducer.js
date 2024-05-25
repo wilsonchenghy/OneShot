@@ -3,30 +3,13 @@ import backgroundMusic2 from '../assets/backgroundMusic2.mp3';
 
 const initialState = {
     timelineData: [
-      // {
-      //   id: "0",
-      //   actions: [
-      //     {
-      //       id: "action00",
-      //       start: 0,
-      //       end: 2,
-      //       effectId: "effect00",
-      //     },
-      //     {
-      //       id: "action01",
-      //       start: 3,
-      //       end: 5,
-      //       effectId: "effect01",
-      //     },
-      //   ],
-      // },
       {
         id: '0',
         actions: [
           {
             id: 'action0',
-            start: 0,
-            end: 30,
+            start: 30,
+            end: 60,
             effectId: 'audioEffect',
             data: {
               src: backgroundMusic,
@@ -40,8 +23,8 @@ const initialState = {
         actions: [
           {
             id: 'action1',
-            start: 30,
-            end: 60,
+            start: 60,
+            end: 90,
             effectId: 'audioEffect',
             data: {
               src: backgroundMusic2,
