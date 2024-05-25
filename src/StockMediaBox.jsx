@@ -77,7 +77,7 @@ const StockMediaBox = ({ isDark }) => {
 
     // Feature of double clicking on a video to add it to the previewer
     const addVideoToPreviewer = (e, mediaUrl) => {
-        e.preventDefault();  // !!!!!!!!!!!!!! seems to not be working, CANNOT disable double clicking make videos full screen behaviour
+        e.preventDefault();  // ISSUE !!!! seems to not be working, CANNOT disable double clicking make videos full screen behaviour
         dispatch(previewMediaAction(mediaUrl));
     }
 
