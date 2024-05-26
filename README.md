@@ -17,3 +17,5 @@
 - [ ] 4. Adding the functionality of double clicking on a stock soundtrack to add it into the timelineEditor
 - [ ] 5. Enable dragging to also be used to drag stock media into the timelineEditor
 - [ ] 6. Need to figure out if lottie animation would be used in OneShot
+- [ ] 7. Addition to the previewer dropbox, add another button with the same function for importing media
+- [ ] 8. Make the previewer dropbox support photos too
