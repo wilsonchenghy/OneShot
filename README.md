@@ -14,3 +14,6 @@
 - [ ] 1. There are several issues commented with ``` !!! ISSUE ``` that have to be resolved
 - [ ] 2. Adding an export button on the upper right corner (left to the light/dark theme button) for the function of exporting the video made in the timeline editor
 - [ ] 3. Adding the functionality of trimming video (Use ffmpeg in Python in the backend)
+- [ ] 4. Adding the functionality of double clicking on a stock soundtrack to add it into the timelineEditor
+- [ ] 5. Enable dragging to also be used to drag stock media into the timelineEditor
+- [ ] 6. Need to figure out if lottie animation would be used in OneShot
