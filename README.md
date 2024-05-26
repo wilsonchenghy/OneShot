@@ -19,3 +19,6 @@
 - [ ] 6. Need to figure out if lottie animation would be used in OneShot
 - [ ] 7. Addition to the previewer dropbox, add another button with the same function for importing media
 - [ ] 8. Make the previewer dropbox support photos too
+
+# Examples
+In src/redux/timelineReducer.js, uncommenting the timelineData can give some examples of media files being displayed in OneShot
