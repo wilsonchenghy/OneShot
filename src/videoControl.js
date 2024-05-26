@@ -16,7 +16,7 @@ class VideoControl {
       video = document.createElement('video');
       video.src = src;
       video.loop = true;
-      video.autoplay = true;
+      video.autoplay = false;
       video.width = 500;
       video.height = 500;
       this.cacheMap[id] = { video, src };

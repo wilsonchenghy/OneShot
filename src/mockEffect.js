@@ -45,21 +45,25 @@ export const mockEffect = {
       name: 'playVideo',
       source: {
         start: ({ action, engine, isPlaying, time }) => {
+          console.log('start')
           if (isPlaying) {
               const src = action.data.src;
               videoControl.start({ id: src, src, startTime: action.start, engine, time });
           }
         },
         stop: ({ action, engine }) => {
+          console.log('stop')
           const src = action.data.src;
           videoControl.stop({ id: src, engine });
         },
         // 'enter' can be called first before 'start' so the displaying of the video will be done in 'enter'
         enter: ({ action }) => {
+          console.log('enter')
           const src = action.data.src;
           videoControl.enter({ id: src, src });
         },
         leave: ({ action, engine }) => {
+          console.log('leave')
           const src = action.data.src;
           videoControl.stop({ id: src, engine });
         },

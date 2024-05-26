@@ -2,6 +2,7 @@ import backgroundMusic from '../assets/backgroundMusic.mp3';
 import backgroundMusic2 from '../assets/backgroundMusic2.mp3';
 import Video1 from '../assets/Video1.mp4';
 
+// All the contents in initialState are examples for demostrating the functioning of the timelineEditor using the assets included
 const initialState = {
     timelineData: [
       {
@@ -34,21 +35,21 @@ const initialState = {
           },
         ],
       },
-      {
-        id: '2',
-        actions: [
-          {
-            id: 'action2',
-            start: 0,
-            end: 1000,
-            effectId: 'videoEffect',
-            data: {
-              src: Video1,
-              name: 'Video1',
-            },
-          },
-        ],
-      },
+      // {
+      //   id: '2',
+      //   actions: [
+      //     {
+      //       id: 'action2',
+      //       start: 0,
+      //       end: 1000,
+      //       effectId: 'videoEffect',
+      //       data: {
+      //         src: Video1,
+      //         name: 'Video1',
+      //       },
+      //     },
+      //   ],
+      // },
       // {
       //   id: '3',
       //   actions: [

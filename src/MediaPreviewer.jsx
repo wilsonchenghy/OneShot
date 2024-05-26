@@ -5,19 +5,18 @@ import ReactPlayer from 'react-player';
 import { useDropzone } from 'react-dropzone';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { previewMediaAction } from './redux/actions';
+import { previewMediaAction, setMediaTypeAction } from './redux/actions';
 
 
 
 const MediaPreviewer = ({timelineData, timelineAddAction}) => {
 
     const mediaUrl = useSelector(state => state.mediaPreview.mediaUrl);
+    const mediaType = useSelector(state => state.mediaPreview.mediaType);
     const isLoading = useSelector(state => state.mediaPreview.isLoading);
 
     // useState
     const [durationTimelineData, setDurationTimelineData] = useState(null);
-    const [mediaSrc, setMediaSrc] = useState(null);
-    const [mediaType, setMediaType] = useState(null);
 
 
     // For handling video/audio dropbox
@@ -26,9 +25,8 @@ const MediaPreviewer = ({timelineData, timelineAddAction}) => {
     const onDrop = (acceptedFiles) => {
         const file = acceptedFiles[0];
         const url = URL.createObjectURL(file);
-        setMediaSrc(url);
         const fileType = file.type.startsWith('video') ? 'video' : 'audio';
-        setMediaType(fileType); 
+        dispatch(setMediaTypeAction(fileType));
         dispatch(previewMediaAction(url));
     };
 
@@ -54,7 +52,7 @@ const MediaPreviewer = ({timelineData, timelineAddAction}) => {
                     id: id,
                     start: 0,
                     end: durationTimelineData,
-                    effectId: mediaType === 'video' ? id : 'audioEffect',
+                    effectId: mediaType === 'video' ? 'videoEffect' : 'audioEffect',
                     data: {
                         src: mediaSrc,
                         name: mediaType === 'video' ? 'Video' + id : 'backgroundAudio' + id, 
@@ -67,7 +65,7 @@ const MediaPreviewer = ({timelineData, timelineAddAction}) => {
 
     useEffect(() => {
         if (durationTimelineData != null) {
-            handleTimelineAddData(mediaSrc, mediaType);
+            handleTimelineAddData(mediaUrl, mediaType);
         }
     }, [durationTimelineData]);
 
@@ -85,17 +83,45 @@ const MediaPreviewer = ({timelineData, timelineAddAction}) => {
                     </div>
                 )}
             </div>
-            {mediaUrl && (
+
+            {/* !!! ISSUE Later on have to decide whether to show the video with ReactPlayer or with just the HTML video element */}
+            {/* {mediaUrl && mediaType == 'video' && (
                 <ReactPlayer
                     url={mediaUrl}
                     controls={true}
                     width="100%"
-                    height={mediaType === 'video' ? 'auto' : '50px'}
+                    height="auto"
                     onDuration={getDuration}
                 />
-            )}          
-            {/* <div id="player-ground-1"></div> */}  {/* Temporary */}
+            )} */}
+
+            {mediaUrl && mediaType === 'video' && (
+                <ReactPlayer
+                    url={mediaUrl}
+                    controls={false}
+                    width="0"
+                    height="0"
+                    style={{ display: 'none' }}
+                    onDuration={getDuration}
+                />
+            )}
+
+            {/* In order to call getDuration even though I don't need the audio component to be rendered, I still create the react player component but set it to be non visible on the UI */}
+            {/* !!! ISSUE Due to the component being non visible but users should still be notified once the audio is sucessfully added, later on we should add a UI Special Effect to notify users of that*/}
+            {mediaUrl && mediaType === 'audio' && (
+                <ReactPlayer
+                    url={mediaUrl}
+                    controls={false}
+                    width="0"
+                    height="0"
+                    style={{ display: 'none' }}
+                    onDuration={getDuration}
+                />
+            )}
             <div id="video-previewer-element"></div>
+
+            {/* Temporary for the lottie animation */}
+            {/* <div id="player-ground-1"></div> */}
         </div>
     )
 }

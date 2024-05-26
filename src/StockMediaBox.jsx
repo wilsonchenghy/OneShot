@@ -5,7 +5,7 @@ import ReactPlayer from 'react-player';
 import axios from 'axios';
 import './css/StockMediaBox.css';
 import { useDispatch } from 'react-redux';
-import { previewMediaAction, setPreviewerLoadingAction } from './redux/actions.js';
+import { previewMediaAction, setMediaTypeAction, setPreviewerLoadingAction } from './redux/actions.js';
 
 const StockMediaBox = ({ isDark }) => {
     
@@ -125,6 +125,7 @@ const StockMediaBox = ({ isDark }) => {
             let mediaPath = './Backend/' + response.data;
             dispatch(setPreviewerLoadingAction(false));
             dispatch(previewMediaAction(mediaPath));
+            dispatch(setMediaTypeAction('video'));
         })
         .catch(error => {
             console.error('Error generating video:', error);
@@ -135,6 +136,7 @@ const StockMediaBox = ({ isDark }) => {
     const addVideoToPreviewer = (e, mediaUrl) => {
         e.preventDefault();  // ISSUE !!!! seems to not be working, CANNOT disable double clicking make videos full screen behaviour
         dispatch(previewMediaAction(mediaUrl));
+        dispatch(setMediaTypeAction('video'));
     }
 
 
