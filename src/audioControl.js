@@ -29,6 +29,7 @@ class AudioControl {
     // Accessing the src value from the cacheMap
     console.log('Playing src:', this.cacheMap[id].src);
 
+    // !!! ISSUE Seems timeListener is never called? But it is included in the example code by the documentation
     const timeListener = ({ time }) => {
       item.seek(time);
     };

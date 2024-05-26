@@ -1,5 +1,6 @@
 import backgroundMusic from '../assets/backgroundMusic.mp3';
 import backgroundMusic2 from '../assets/backgroundMusic2.mp3';
+import Video1 from '../assets/Video1.mp4';
 
 const initialState = {
     timelineData: [
@@ -39,11 +40,11 @@ const initialState = {
           {
             id: 'action2',
             start: 0,
-            end: 60,
-            effectId: 'visualEffect',
+            end: 1000,
+            effectId: 'videoEffect',
             data: {
-              src: '/src/assets/LottieAnimation.json',
-              name: 'LottieAnimation',
+              src: Video1,
+              name: 'Video1',
             },
           },
         ],
@@ -53,6 +54,21 @@ const initialState = {
       //   actions: [
       //     {
       //       id: 'action3',
+      //       start: 0,
+      //       end: 60,
+      //       effectId: 'visualEffect',
+      //       data: {
+      //         src: '/src/assets/LottieAnimation.json',
+      //         name: 'LottieAnimation',
+      //       },
+      //     },
+      //   ],
+      // },
+      // {
+      //   id: '4',
+      //   actions: [
+      //     {
+      //       id: 'action4',
       //       start: 10,
       //       end: 40,
       //       effectId: 'visualEffect',
@@ -64,10 +80,10 @@ const initialState = {
       //   ],
       // },
       // {
-      //   id: '4',
+      //   id: '5',
       //   actions: [
       //     {
-      //       id: 'action4',
+      //       id: 'action5',
       //       start: 40,
       //       end: 60,
       //       effectId: 'visualEffect',

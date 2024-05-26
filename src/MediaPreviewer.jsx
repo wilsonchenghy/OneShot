@@ -95,6 +95,7 @@ const MediaPreviewer = ({timelineData, timelineAddAction}) => {
                 />
             )}          
             {/* <div id="player-ground-1"></div> */}  {/* Temporary */}
+            <div id="video-previewer-element"></div>
         </div>
     )
 }
