@@ -21,4 +21,4 @@
 - [ ] 8. Make the previewer dropbox support photos too
 
 # Examples
-In src/redux/timelineReducer.js, uncommenting the timelineData can give some examples of media files being displayed in OneShot
+In src/redux/timelineReducer.js, uncommenting the timelineData can show some examples of media files being displayed in OneShot
