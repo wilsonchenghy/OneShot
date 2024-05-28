@@ -92,7 +92,7 @@ const UserTab = ({ isDark }) => {
 
         <div className="tabs-panel" tabIndex={activeTab === 0 ? 0 : -1} role="tabpanel">
           <div className="panel">
-            <StockMediaBox isDark={isDark} />
+            <StockMediaBox isDark={isDark} /> {/* ISSUE !!!! dark theme can be implemented without putting isDark as an argument? */}
           </div>
         </div>
 
