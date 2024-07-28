@@ -1,4 +1,6 @@
 # OneShot
+
+An AI-Powered Video Editor
  
 # Getting Started
 1. Run ``` npm install ```
