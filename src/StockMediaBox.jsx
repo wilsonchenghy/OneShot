@@ -12,12 +12,10 @@ const StockMediaBox = ({ isDark }) => {
     // useState
     const [imageQuery, setImageQuery] = useState('');
     const [videoQuery, setVideoQuery] = useState('');
-    const [lottieQuery, setLottieQuery] = useState('');
     const [soundtrackQuery, setSoundtrackQuery] = useState('');
 
     const [images, setImages] = useState([]);
     const [videos, setVideos] = useState([]);
-    const [lottieAnimations, setLottieAnimations] = useState([]);
     const [soundtracks, setSoundtracks] = useState([]);
 
     const [visibleGrid, setVisibleGrid] = useState('none');
@@ -29,10 +27,6 @@ const StockMediaBox = ({ isDark }) => {
     // Jamendo API Key
     const jamendoClientId = import.meta.env.VITE_JAMENDO_CLIENT_ID;
 
-    // Lottie Files API Key
-    // !!! ISSUE Cannot find any api key for lottiefiles
-    const lottieFilesApiKey = 'YOUR_LOTTIEFILES_API_KEY';
-
 
     
     const handleSearchImageButtonClick = () => {
@@ -42,11 +36,6 @@ const StockMediaBox = ({ isDark }) => {
     const handleSearchVideoButtonClick = () => {
         setVisibleGrid('videoGrid');
         fetchVideos();
-    };
-
-    const handleSearchLottieAnimationButtonClick = () => {
-        setVisibleGrid('lottieGrid');
-        fetchLottieAnimations();
     };
 
     const handleSongsButtonClick = () => {
@@ -80,22 +69,6 @@ const StockMediaBox = ({ isDark }) => {
             setVideos(response.data.videos);
         } catch (error) {
             console.error('Error fetching videos:', error);
-        }
-    };
-
-    // Fetching Lottie animations
-    const fetchLottieAnimations = async () => {
-        try {
-            console.log("hi")
-            const response = await axios.get(`https://api.lottiefiles.com/v2/search?q=${lottieQuery}&limit=10`, {
-                headers: {
-                    'Authorization': `Bearer ${lottieFilesApiKey}`
-                }
-            });
-            console.log(response)
-            setLottieAnimations(response.data.data);
-        } catch (error) {
-            console.error('Error fetching Lottie animations:', error);
         }
     };
 
@@ -168,13 +141,6 @@ const StockMediaBox = ({ isDark }) => {
                 <br />
 
                 <div className="input-container">
-                    <input className={`inputbox ${isDark ? 'dark' : ''}`} type="text" value={lottieQuery} onChange={(e) => setLottieQuery(e.target.value)} />
-                    <button className={`button-4 search ${isDark ? 'dark' : ''}`} onClick={handleSearchLottieAnimationButtonClick}>Search Lottie Animations</button>
-                </div>
-
-                <br />
-
-                <div className="input-container">
                     <input className={`inputbox ${isDark ? 'dark' : ''}`} type="text" value={soundtrackQuery} onChange={(e) => setSoundtrackQuery(e.target.value)} />
                     <button className={`button-4 search ${isDark ? 'dark' : ''}`} onClick={handleSongsButtonClick}>Search Soundtrack</button>
                 </div>
@@ -202,16 +168,6 @@ const StockMediaBox = ({ isDark }) => {
                         className='stockVideos'
                         onDoubleClick={(e) => addVideoToPreviewer(e, video.video_files[0].link)}
                     />
-                ))}
-            </div>
-
-            <br />
-
-            <div className={visibleGrid === 'lottieGrid' ? 'lottieGrid' : 'hidden'}>
-                {lottieAnimations.map((animation) => (
-                    <div key={animation.id} className="lottieAnimationItem" onClick={() => addLottieAnimationToPreviewer(animation.files.json)}>
-                        <Lottie options={{ animationData: animation.files.json, loop: true, autoplay: false }} height={100} width={100} />
-                    </div>
                 ))}
             </div>
 
