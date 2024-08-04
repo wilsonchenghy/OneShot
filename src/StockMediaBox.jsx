@@ -95,7 +95,7 @@ const StockMediaBox = ({ isDark }) => {
             duration: 5
         })
         .then(response => {
-            let mediaPath = './Backend/' + response.data;
+            let mediaPath = '/' + response.data;
             dispatch(setPreviewerLoadingAction(false));
             dispatch(previewMediaAction(mediaPath));
             dispatch(setMediaTypeAction('video'));
@@ -118,30 +118,21 @@ const StockMediaBox = ({ isDark }) => {
         <div>
             <div className="MediaBox">
                 <div className="input-container">
-                    <input className="inputbox" type="text" value={imageQuery} onChange={(e) => setImageQuery(e.target.value)} />
+                    <input id='imageSearchQuery' className="inputbox" type="text" value={imageQuery} onChange={(e) => setImageQuery(e.target.value)} />
                     <button className="button-4 search" onClick={handleSearchImageButtonClick}>Search Images</button>
                 </div>
 
                 <br />
                 
                 <div className="input-container">
-                    <input className={`inputbox ${isDark ? 'dark' : ''}`} 
-                        type="text" 
-                        value={videoQuery} 
-                        onChange={(e) => setVideoQuery(e.target.value)} 
-                    />
-
-                    <button className={`button-4 search ${isDark ? 'dark' : ''}`} 
-                    onClick={handleSearchVideoButtonClick}
-                    >
-                        Search Videos
-                    </button>
+                    <input id='videoSearchQuery' className={`inputbox ${isDark ? 'dark' : ''}`} type="text" value={videoQuery} onChange={(e) => setVideoQuery(e.target.value)} />
+                    <button className={`button-4 search ${isDark ? 'dark' : ''}`} onClick={handleSearchVideoButtonClick}>Search Videos</button>
                 </div>
 
                 <br />
 
                 <div className="input-container">
-                    <input className={`inputbox ${isDark ? 'dark' : ''}`} type="text" value={soundtrackQuery} onChange={(e) => setSoundtrackQuery(e.target.value)} />
+                    <input id='soundtrackSearchQuery' className={`inputbox ${isDark ? 'dark' : ''}`} type="text" value={soundtrackQuery} onChange={(e) => setSoundtrackQuery(e.target.value)} />
                     <button className={`button-4 search ${isDark ? 'dark' : ''}`} onClick={handleSongsButtonClick}>Search Soundtrack</button>
                 </div>
 

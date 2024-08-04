@@ -13,7 +13,7 @@ def generate_video_from_image(image_path, duration):
     try:
         subprocess.run([
             'ffmpeg', '-loop', '1', '-i', image_path,
-            '-c:v', 'libx264', '-t', str(duration), 'output.mp4'
+            '-c:v', 'libx264', '-preset', 'ultrafast', '-t', str(duration), 'output.mp4'
         ])
         return 'output.mp4'
     except Exception as e:

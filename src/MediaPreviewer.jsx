@@ -30,7 +30,10 @@ const MediaPreviewer = ({timelineData, timelineAddAction}) => {
         dispatch(previewMediaAction(url));
     };
 
-    const acceptType = 'video/*, audio/*';
+    const acceptType = {
+        'video/*': ['.mp4', '.mov', '.avi'], // Need to specify video formats, or else there will be warnings
+        'audio/*': ['.mp3', '.wav', '.ogg'], // Need to specify audio formats, or else there will be warnings
+    };
     const { getRootProps, getInputProps } = useDropzone({ onDrop, accept: acceptType });
 
 

@@ -36,7 +36,7 @@ const AICommandBox = () => {
             ))}
         </div>
         <form onSubmit={getResponse}>
-            <input type="text" value={prompt} onChange={handleInputChange} />
+            <input id='prompt' type="text" value={prompt} onChange={handleInputChange} />
             <button type="submit">Send</button>
         </form>
         </div>
