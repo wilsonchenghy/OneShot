@@ -1,5 +1,6 @@
 import { useState } from'react';
 import axios from 'axios';
+import './css/AICommandBox.css';
 
 const AICommandBox = () => {
     
@@ -27,18 +28,18 @@ const AICommandBox = () => {
     };
 
     return (
-        <div>
-        <div className="commentbox">
-            {messages.map((message, index) => (
-            <div key={index} style={{ padding: '5px', textAlign: message.sender === 'user' ? 'right' : 'left' }}>
-                {message.text}
+        <div className='commandBoxContainer'>
+            <div className="messageBox">
+                {messages.map((message, index) => (
+                <div key={index} className={message.sender === 'user' ? 'user-message' : 'other-message'}>
+                    {message.text}
+                </div>
+                ))}
             </div>
-            ))}
-        </div>
-        <form onSubmit={getResponse}>
-            <input id='prompt' type="text" value={prompt} onChange={handleInputChange} />
-            <button type="submit">Send</button>
-        </form>
+            <form className='promptForm' onSubmit={getResponse}>
+                <input id='prompt' className='promptInput' type="text" value={prompt} onChange={handleInputChange} placeholder='Enter your AI command ... ✨'/>
+                <button className='sendPromptButton' type="submit">Send</button>
+            </form>
         </div>
     );
 };

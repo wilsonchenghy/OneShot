@@ -4,7 +4,7 @@ import StockMediaBox from './StockMediaBox';
 import './css/UserTab.css';
 
 const UserTab = ({ isDark }) => {
-  const [activeTab, setActiveTab] = useState(0); // Use 0 as the initial active tab index
+  const [activeTab, setActiveTab] = useState(1); // Use 0 as the initial active tab index
   const tabsRef = useRef(null);
 
   const switchTab = (tabIndex) => {
@@ -40,9 +40,10 @@ const UserTab = ({ isDark }) => {
           tabsPanel[i].removeAttribute('hidden');
         }
 
+        // Calculate the width and position of the active tab indicator
         const leftPercent = (tab.offsetLeft / tabsHeader.offsetWidth) * 100;
         activeTabIndicator.style.width = tab.offsetWidth + 'px';
-        activeTabIndicator.style.left = leftPercent + 7 + '%';
+        activeTabIndicator.style.left = leftPercent + 7 + (-0.1* leftPercent) + '%';
       };
 
       // Activate the currently active tab based on the state
@@ -76,7 +77,7 @@ const UserTab = ({ isDark }) => {
         });
       });
     }
-  }, [isDark, activeTab]); // Add activeTab to the dependency array
+  }, [isDark, activeTab]);
 
   return (
     <div>

@@ -155,17 +155,6 @@ img {
   border-radius: 30px;
 }
 
-.commentbox {
-  position: relative;
-  right: 10px;
-  height: 60vh;
-  width: 25vh;
-  overflow-y: scroll;
-  border: 1px solid #a2a1a1;
-  margin-bottom: 10px;
-  border-radius: 20px;
-}
-
 .MediaBox {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
