@@ -11,8 +11,9 @@ An AI-Powered Video Editor
 
 # Using APIs Within OneShot
 1. Create an ``` .env ``` file in the OneShot Directory
-2. Put in ``` VITE_PEXELS_API_KEY = 'YOUR_PEXELS_API_KEY_HERE' ``` (Create the API Key from the Pexels website)
-3. Put in ``` VITE_JAMENDO_CLIENT_ID = 'YOUR_JAMENDO_CLIENT_ID_HERE' ``` (Create the API Key from the Jamendo website)
+2. Put in ``` OPENAI_API_KEY = 'YOUR_OPENAI_API_KEY_HERE' ``` (Create the API Key from the OpenAI website)
+3. Put in ``` VITE_PEXELS_API_KEY = 'YOUR_PEXELS_API_KEY_HERE' ``` (Create the API Key from the Pexels website)
+4. Put in ``` VITE_JAMENDO_CLIENT_ID = 'YOUR_JAMENDO_CLIENT_ID_HERE' ``` (Create the API Key from the Jamendo website)
 
 # Work to be done
 - [ ] 1. There are several issues commented with ``` !!! ISSUE ``` that have to be resolved

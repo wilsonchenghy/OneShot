@@ -1,25 +1,29 @@
 import { useState } from'react';
+import axios from 'axios';
 
 const AICommandBox = () => {
     
     const [messages, setMessages] = useState([]);
-    const [newMessage, setNewMessage] = useState('');
+    const [prompt, setPrompt] = useState('');
 
     const handleInputChange = (e) => {
-        setNewMessage(e.target.value);
+        setPrompt(e.target.value);
     };
 
-    const handleSubmit = (e) => {
+    const getResponse = async (e) => {
         e.preventDefault();
-        if (newMessage.trim() === '') {
-        return;
+        if (prompt.trim() === '') {
+            return;
         }
-        setMessages([...messages, { text: newMessage, sender: 'user' }]);
-        setNewMessage('');
-        // Simulate response from another user after a short delay
-        setTimeout(() => {
-        setMessages([...messages, { text: 'Hello!', sender: 'other' }]);
-        }, 500);
+        setMessages((prevMessages) => [...prevMessages, { text: prompt, sender: 'user' }]);
+        setPrompt('');
+
+        try{
+            const response = await axios.post('http://localhost:5001/AI_Command_Box', {prompt});
+            setMessages((prevMessages) => [...prevMessages, { text: response.data, sender: 'other' }]);
+        } catch (error) {
+            console.error('error in getting AI response')
+        }
     };
 
     return (
@@ -31,8 +35,8 @@ const AICommandBox = () => {
             </div>
             ))}
         </div>
-        <form onSubmit={handleSubmit}>
-            <input type="text" value={newMessage} onChange={handleInputChange} />
+        <form onSubmit={getResponse}>
+            <input type="text" value={prompt} onChange={handleInputChange} />
             <button type="submit">Send</button>
         </form>
         </div>
