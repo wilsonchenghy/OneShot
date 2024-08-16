@@ -20,8 +20,8 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 50px;
-  background-image: linear-gradient(to bottom right, #a6e2f9, #6bdfec);
+  height: 54px;
+  background-image: linear-gradient(to bottom right, #abdef3, #6bdfec);
   text-align: left;
   align-items: center;
   z-index: 100;
@@ -34,13 +34,15 @@
 
 img {
   width: auto;
-  height: 100px;
-} /* Theme Change toggle checkbox*/
+  height: 107px;
+  margin-left: 10px;
+} 
 
+/* Theme Change toggle checkbox*/
 .checkbox-container {
   position: absolute;
   left: 90%;
-  top: 10px;
+  top: 15px;
   z-index: 100;
 }
 
@@ -100,7 +102,7 @@ img {
   left: 0%;
   width: 50%;
   height: 50%;
-  background: rgb(72, 212, 220);
+  background: rgb(123, 208, 212);
 }
 
 .color:nth-child(2) {
@@ -108,7 +110,7 @@ img {
   left: 40%;
   width: 55%;
   height: 50%;
-  background: rgb(8, 140, 145);
+  background: rgb(76, 161, 164);
 }
 
 .color:nth-child(3) {
@@ -116,7 +118,7 @@ img {
   right: 15%;
   width: 35%;
   height: 35%;
-  background: rgb(91, 91, 175);
+  background: rgb(88, 88, 176);
 }
 
 /*>>>>>>>>>>>>>>>>Panel: The integrated features of the web, on the left of the web<<<<<<<<<<<<<<<<<<*/
@@ -256,12 +258,13 @@ img {
   overflow-x: hidden;
   box-sizing: border-box;
   bottom: 2%;
-  right: 2%;
+  right: 1.8%;
   width: 60%;
   height: 35%;
   background-color: #1f1f1f;
   border-radius: 10px;
   z-index: 10;
+  margin-bottom: 10px;
 }
 /*>>>>>>>>>>>>>>>>>>>>>>>>>>End Timeline, more code about timeline can be found at TimelinePlayerBar.css<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 

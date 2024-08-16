@@ -26,11 +26,9 @@ const UserTab = ({ isDark }) => {
         if (!tab) return;
         tabsHeader.querySelectorAll('button').forEach((button) => {
           button.removeAttribute('aria-selected');
-          button.style.color = isDark ? '#acb3d4' : '#555';
         });
 
         tab.setAttribute('aria-selected', true);
-        tab.style.color = isDark ? '#fbfbfb' : '#0084b5';
 
         tabsPanel.forEach((panel) => {
           panel.setAttribute('hidden', true);
@@ -84,10 +82,10 @@ const UserTab = ({ isDark }) => {
       <div className={`tabs ${isDark ? 'dark' : ''}`} ref={tabsRef}>
         <div className="tabs-header" role="tablist" aria-label="my-tabs">
           <button role="tab" aria-selected={activeTab === 0} tabIndex={activeTab === 0 ? 0 : -1}>
-            StockMediaBox
+            🔍 Stock Media
           </button>
           <button role="tab" aria-selected={activeTab === 1} tabIndex={activeTab === 1 ? 0 : -1}>
-            AICommandBox
+            💫 AI Command
           </button>
         </div>
 
